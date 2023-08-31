@@ -1,0 +1,2016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Creos_StagingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="parseJSON_Result">
+    <Property Name="element_id" Type="Int32" Nullable="false" />
+    <Property Name="sequenceNo" Type="Int32" />
+    <Property Name="parent_ID" Type="Int32" />
+    <Property Name="Object_ID" Type="Int32" />
+    <Property Name="NAME" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+    <Property Name="StringValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ValueType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="udf_GetEmployeeDetailby_Appinfo_Employee_Id_Result">
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FormId" Type="Int32" />
+  </ComplexType>
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ZipPostalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="FaxNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="StateProvinceId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Country" Relationship="Self.FK_Addresses_Countries" FromRole="Addresses" ToRole="Countries" />
+    <NavigationProperty Name="StateProvince" Relationship="Self.FK_Addresses_StateProvinces" FromRole="Addresses" ToRole="StateProvinces" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_Addresses" FromRole="Addresses" ToRole="Locations" />
+    <NavigationProperty Name="Subscribers" Relationship="Self.FK_Subscribers_Addresses" FromRole="Addresses" ToRole="Subscribers" />
+  </EntityType>
+  <EntityType Name="AppLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsWebEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsMobileEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="IsReset" Type="Boolean" />
+    <Property Name="ResetLink" Type="Guid" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_AppLogins_Subscribers" FromRole="AppLogins" ToRole="Subscribers" />
+    <NavigationProperty Name="EmployeeRoles" Relationship="Self.FK_EmployeeRoles_AppLogins" FromRole="AppLogins" ToRole="EmployeeRoles" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_AppLogins" FromRole="AppLogins" ToRole="Employees" />
+    <NavigationProperty Name="LoginLogs" Relationship="Self.FK_LoginLogs_AppLogins" FromRole="AppLogins" ToRole="LoginLogs" />
+  </EntityType>
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsReadonly" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_AppSettings_Subscribers" FromRole="AppSettings" ToRole="Subscribers" />
+  </EntityType>
+  <EntityType Name="AppUserInfo">
+    <Key>
+      <PropertyRef Name="AppInfoID" />
+    </Key>
+    <Property Name="AppInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DeviceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OTP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsOTPVerified" Type="Boolean" Nullable="false" />
+    <Property Name="EmailVerificationCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsEmailVerified" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notification_AppUserInfo" FromRole="AppUserInfo" ToRole="Notification" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UniqueNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ReceiveReminders" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="EmployeeForms" Relationship="Self.FK_EmployeeForms_Clients" FromRole="Clients" ToRole="EmployeeForms" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_Clients" FromRole="Clients" ToRole="Locations" />
+    <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Clients" FromRole="Clients" ToRole="Project" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TwoLetterIsoCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="ThreeLetterIsoCode" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+    <Property Name="NumericIsoCode" Type="Int32" Nullable="false" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="CountryFlag" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK_Addresses_Countries" FromRole="Countries" ToRole="Addresses" />
+    <NavigationProperty Name="StateProvinces" Relationship="Self.FK__StateProv__Count__6F1576F7" FromRole="Countries" ToRole="StateProvinces" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_Countries_Subscribers" FromRole="Countries" ToRole="Subscribers" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Rate" Type="Decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Dashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="FormVersionId" Type="Int32" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="Page" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DashboardObjs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Dashboard_Employees" FromRole="Dashboard" ToRole="Employees" />
+    <NavigationProperty Name="Employee1" Relationship="Self.FK_Dashboard_Employees1" FromRole="Dashboard" ToRole="Employees" />
+    <NavigationProperty Name="FormVersion" Relationship="Self.FK_Dashboard_FormVersions" FromRole="Dashboard" ToRole="FormVersions" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_Dashboard_Subscribers" FromRole="Dashboard" ToRole="Subscribers" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_Dashboard_Forms" FromRole="Dashboard" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="JobId" Type="Int32" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Documents_Employees" FromRole="Documents" ToRole="Employees" />
+    <NavigationProperty Name="Job" Relationship="Self.FK_Documents_Jobs" FromRole="Documents" ToRole="Jobs" />
+  </EntityType>
+  <EntityType Name="EmployeeForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_EmployeeForms_Clients" FromRole="EmployeeForms" ToRole="Clients" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeForms_Employees" FromRole="EmployeeForms" ToRole="Employees" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_EmployeeForms_Project" FromRole="EmployeeForms" ToRole="Project" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_EmployeeForms_Forms" FromRole="EmployeeForm" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="EmployeeLocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_EmployeeLocations_Employee" FromRole="EmployeeLocations" ToRole="Employees" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_EmployeeLocations_Locations" FromRole="EmployeeLocations" ToRole="Locations" />
+  </EntityType>
+  <EntityType Name="EmployeeRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppLoginId" Type="Int64" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="OperationId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppLogin" Relationship="Self.FK_EmployeeRoles_AppLogins" FromRole="EmployeeRoles" ToRole="AppLogins" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_EmployeeRoles_Roles" FromRole="EmployeeRoles" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PayrollId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Title" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="Boolean" Nullable="false" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AppLoginId" Type="Int64" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="SystemRoleId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppLogin" Relationship="Self.FK_Employees_AppLogins" FromRole="Employees" ToRole="AppLogins" />
+    <NavigationProperty Name="Dashboards" Relationship="Self.FK_Dashboard_Employees" FromRole="Employees" ToRole="Dashboard" />
+    <NavigationProperty Name="Dashboards1" Relationship="Self.FK_Dashboard_Employees1" FromRole="Employees" ToRole="Dashboard" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Employees" FromRole="Employees" ToRole="Documents" />
+    <NavigationProperty Name="EmployeeForms" Relationship="Self.FK_EmployeeForms_Employees" FromRole="Employees" ToRole="EmployeeForms" />
+    <NavigationProperty Name="EmployeeLocations" Relationship="Self.FK_EmployeeLocations_Employee" FromRole="Employees" ToRole="EmployeeLocations" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_Employees_Subscribers" FromRole="Employees" ToRole="Subscribers" />
+    <NavigationProperty Name="FormSubmissions" Relationship="Self.FK_FormSubmissions_Employess" FromRole="Employees" ToRole="FormSubmissions" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK_Jobs_Employees" FromRole="Employees" ToRole="Jobs" />
+    <NavigationProperty Name="SubmissionEmployeeMaps" Relationship="Self.FK_SubmissionEmployeeMap_Employees" FromRole="Employees" ToRole="SubmissionEmployeeMap" />
+    <NavigationProperty Name="Forms" Relationship="Creos_StagingModel.FK_Forms_Employees" FromRole="Employee" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="FormAnswer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" Nullable="false" />
+    <Property Name="ElementType" Type="Int32" Nullable="false" />
+    <Property Name="FormQuestionId" Type="Int64" Nullable="false" />
+    <Property Name="FormSubmissionId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="FormQuestion" Relationship="Self.FK_FormAnswers_FormQuestions" FromRole="FormAnswers" ToRole="FormQuestions" />
+    <NavigationProperty Name="FormSubmission" Relationship="Self.FK_FormAnswers_FormSubmissions" FromRole="FormAnswers" ToRole="FormSubmissions" />
+  </EntityType>
+  <EntityType Name="FormQuestion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Question" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JSONQuestion" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="FormToolsId" Type="Int32" Nullable="false" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="FormVersionId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FormAnswers" Relationship="Self.FK_FormAnswers_FormQuestions" FromRole="FormQuestions" ToRole="FormAnswers" />
+    <NavigationProperty Name="FormVersion" Relationship="Self.FK_FormQuestions_FormVersions" FromRole="FormQuestions" ToRole="FormVersions" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_FormQuestions_Languages" FromRole="FormQuestions" ToRole="Languages" />
+    <NavigationProperty Name="FormSections" Relationship="Self.FK_FormSections_FormQuestions" FromRole="FormQuestions" ToRole="FormSections" />
+    <Property Name="ParentQuestionId" Type="Int64" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_FormQuestions_Forms" FromRole="FormQuestion" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="FormSectionRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormSectionId" Type="Int32" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FormSection" Relationship="Self.FK_FormSectionRole_FormSections" FromRole="FormSectionRole" ToRole="FormSections" />
+    <NavigationProperty Name="Role" Relationship="Self.FK_FormSectionRole_Roles" FromRole="FormSectionRole" ToRole="Roles" />
+  </EntityType>
+  <EntityType Name="FormSection">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="FormQueId" Type="Int64" Nullable="false" />
+    <Property Name="VersionId" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FormQuestion" Relationship="Self.FK_FormSections_FormQuestions" FromRole="FormSections" ToRole="FormQuestions" />
+    <NavigationProperty Name="FormSectionRoles" Relationship="Self.FK_FormSectionRole_FormSections" FromRole="FormSections" ToRole="FormSectionRole" />
+    <NavigationProperty Name="FormVersion" Relationship="Self.FK_FormSections_FormVersions" FromRole="FormSections" ToRole="FormVersions" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_FormSections_Forms" FromRole="FormSection" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="FormSubmission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppInfoId" Type="Int32" />
+    <Property Name="DeviceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LatLong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Latitude" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="Longitude" Type="Decimal" Precision="20" Scale="17" />
+    <Property Name="SubmittedBy" Type="Int64" Nullable="false" />
+    <Property Name="SubmittedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int64" />
+    <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsApproved" Type="Int32" />
+    <Property Name="IsProcessing" Type="Boolean" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="FolderName" Type="Guid" Nullable="false" />
+    <Property Name="IsSync" Type="Boolean" Nullable="false" />
+    <Property Name="FormVersionId" Type="Int32" />
+    <Property Name="LanguageId" Type="Int32" />
+    <Property Name="Action" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsCompleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_FormSubmissions_Employess" FromRole="FormSubmissions" ToRole="Employees" />
+    <NavigationProperty Name="FormAnswers" Relationship="Self.FK_FormAnswers_FormSubmissions" FromRole="FormSubmissions" ToRole="FormAnswers" />
+    <NavigationProperty Name="FormVersion" Relationship="Self.FK_FormSubmissions_FormVersions" FromRole="FormSubmissions" ToRole="FormVersions" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_FormSubmissions_Languages" FromRole="FormSubmissions" ToRole="Languages" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_FormSubmissions_Subscribers" FromRole="FormSubmissions" ToRole="Subscribers" />
+    <NavigationProperty Name="PostLocations" Relationship="Self.FK_PostLocation_FormSubmissions" FromRole="FormSubmissions" ToRole="PostLocation" />
+    <NavigationProperty Name="SubmissionEmployeeMaps" Relationship="Self.FK_SubmissionEmployeeMap_FormSubmissions" FromRole="FormSubmissions" ToRole="SubmissionEmployeeMap" />
+    <NavigationProperty Name="SubmissionLogs" Relationship="Creos_StagingModel.FK_SubmissionLogs_FormSubmissions1" FromRole="FormSubmission" ToRole="SubmissionLog" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_FormSubmissions_Forms" FromRole="FormSubmission" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="FormTool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="ElementImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="FormVersion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="Version" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Dashboards" Relationship="Self.FK_Dashboard_FormVersions" FromRole="FormVersions" ToRole="Dashboard" />
+    <NavigationProperty Name="FormQuestions" Relationship="Self.FK_FormQuestions_FormVersions" FromRole="FormVersions" ToRole="FormQuestions" />
+    <NavigationProperty Name="FormSections" Relationship="Self.FK_FormSections_FormVersions" FromRole="FormVersions" ToRole="FormSections" />
+    <NavigationProperty Name="FormSubmissions" Relationship="Self.FK_FormSubmissions_FormVersions" FromRole="FormVersions" ToRole="FormSubmissions" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_FormVersions_Forms" FromRole="FormVersion" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="Job">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Signature" Type="Binary" MaxLength="500" FixedLength="true" Nullable="false" />
+    <Property Name="Start" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Finish" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CompletedBy" Type="Int32" Nullable="false" />
+    <Property Name="CompletedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ApprovedBy" Type="Int32" />
+    <Property Name="ApprovedOn" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="LocationId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Documents" Relationship="Self.FK_Documents_Jobs" FromRole="Jobs" ToRole="Documents" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Jobs_Employees" FromRole="Jobs" ToRole="Employees" />
+    <NavigationProperty Name="Location" Relationship="Self.FK_Jobs_Locations" FromRole="Jobs" ToRole="Locations" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_Jobs_Forms" FromRole="Job" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="Language">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LanguageCulture" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UniqueSeoCode" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="FlagImageFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rtl" Type="Boolean" Nullable="false" />
+    <Property Name="Published" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FormQuestions" Relationship="Self.FK_FormQuestions_Languages" FromRole="Languages" ToRole="FormQuestions" />
+    <NavigationProperty Name="FormSubmissions" Relationship="Self.FK_FormSubmissions_Languages" FromRole="Languages" ToRole="FormSubmissions" />
+    <NavigationProperty Name="LocalStringResources" Relationship="Self.FK_LocaleStringResources_Languages" FromRole="Languages" ToRole="LocalStringResources" />
+    <NavigationProperty Name="SubscriberLanguages" Relationship="Self.FK_SubscriberLanguages_Languages" FromRole="Languages" ToRole="SubscriberLanguages" />
+    <NavigationProperty Name="Forms" Relationship="Creos_StagingModel.FK_Forms_Languages" FromRole="Language" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="LocalStringResource">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsHtml" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="OperationId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="IsMobileEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsWebEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="ResourceType" Type="Int32" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_LocaleStringResources_Languages" FromRole="LocalStringResources" ToRole="Languages" />
+    <NavigationProperty Name="Operation" Relationship="Self.FK_LocaleStringResources_Operations" FromRole="LocalStringResources" ToRole="Operations" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_LocalStringResources_Subscribers" FromRole="LocalStringResources" ToRole="Subscribers" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="OperationId" Type="Int32" Nullable="false" />
+    <Property Name="AddressId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Locations_Addresses" FromRole="Locations" ToRole="Addresses" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Locations_Clients" FromRole="Locations" ToRole="Clients" />
+    <NavigationProperty Name="EmployeeLocations" Relationship="Self.FK_EmployeeLocations_Locations" FromRole="Locations" ToRole="EmployeeLocations" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK_Jobs_Locations" FromRole="Locations" ToRole="Jobs" />
+    <NavigationProperty Name="Operation" Relationship="Self.FK_Locations_Operations" FromRole="Locations" ToRole="Operations" />
+  </EntityType>
+  <EntityType Name="LoginLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IpAddress" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LoggedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Action" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="AppLoginId" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="AppLogin" Relationship="Self.FK_LoginLogs_AppLogins" FromRole="LoginLogs" ToRole="AppLogins" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppInfoId" Type="Int32" Nullable="false" />
+    <Property Name="TypeOfNotification" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsUnread" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="AppUserInfo" Relationship="Self.FK_Notification_AppUserInfo" FromRole="Notification" ToRole="AppUserInfo" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_Notification_Subscribers" FromRole="Notification" ToRole="Subscribers" />
+  </EntityType>
+  <EntityType Name="Operation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="LocalStringResources" Relationship="Self.FK_LocaleStringResources_Operations" FromRole="Operations" ToRole="LocalStringResources" />
+    <NavigationProperty Name="Locations" Relationship="Self.FK_Locations_Operations" FromRole="Operations" ToRole="Locations" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_Operations_Subscribers" FromRole="Operations" ToRole="Subscribers" />
+    <NavigationProperty Name="OperationSettings" Relationship="Self.FK_OperationSettings_Operation" FromRole="Operations" ToRole="OperationSettings" />
+  </EntityType>
+  <EntityType Name="OperationSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OperationId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Operation" Relationship="Self.FK_OperationSettings_Operation" FromRole="OperationSettings" ToRole="Operations" />
+  </EntityType>
+  <EntityType Name="PieChartQueryResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Total" Type="Int32" />
+  </EntityType>
+  <EntityType Name="PostLocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubmissionId" Type="Int64" Nullable="false" />
+    <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="administrative_area_level_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="administrative_area_level_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="administrative_area_level_3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="colloquial_area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="locality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sublocality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="neighborhood" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="postal_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="country" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="shortName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FormSubmission" Relationship="Self.FK_PostLocation_FormSubmissions" FromRole="PostLocation" ToRole="FormSubmissions" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClientId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Project_Clients" FromRole="Project" ToRole="Clients" />
+    <NavigationProperty Name="EmployeeForms" Relationship="Self.FK_EmployeeForms_Project" FromRole="Project" ToRole="EmployeeForms" />
+    <NavigationProperty Name="ProjectForms" Relationship="Self.FK_ProjectForms_Project" FromRole="Project" ToRole="ProjectForms" />
+  </EntityType>
+  <EntityType Name="ProjectForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectId" Type="Int32" Nullable="false" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Project" Relationship="Self.FK_ProjectForms_Project" FromRole="ProjectForms" ToRole="Project" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_ProjectForms_Forms" FromRole="ProjectForm" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="QueryTableResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Appreciation" Type="Int32" />
+    <Property Name="Issue" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Value" Type="Int32" Nullable="false" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EmployeeRoles" Relationship="Self.FK_EmployeeRoles_Roles" FromRole="Roles" ToRole="EmployeeRoles" />
+    <NavigationProperty Name="FormSectionRoles" Relationship="Self.FK_FormSectionRole_Roles" FromRole="Roles" ToRole="FormSectionRole" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <NavigationProperty Name="RoleReportsToes" Relationship="Creos_StagingModel.FK_RoleReportsTo_Roles2" FromRole="Role" ToRole="RoleReportsTo" />
+    <NavigationProperty Name="RoleReportsToes1" Relationship="Creos_StagingModel.FK_RoleReportsTo_Roles3" FromRole="Role" ToRole="RoleReportsTo" />
+  </EntityType>
+  <EntityType Name="StateProvince">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Abbreviation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Addresses" Relationship="Self.FK_Addresses_StateProvinces" FromRole="StateProvinces" ToRole="Addresses" />
+    <NavigationProperty Name="Country" Relationship="Self.FK__StateProv__Count__6F1576F7" FromRole="StateProvinces" ToRole="Countries" />
+  </EntityType>
+  <EntityType Name="SubmissionEmployeeMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubmissionId" Type="Int64" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="Assigned" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_SubmissionEmployeeMap_Employees" FromRole="SubmissionEmployeeMap" ToRole="Employees" />
+    <NavigationProperty Name="FormSubmission" Relationship="Self.FK_SubmissionEmployeeMap_FormSubmissions" FromRole="SubmissionEmployeeMap" ToRole="FormSubmissions" />
+  </EntityType>
+  <EntityType Name="SubscriberLanguage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubcriberId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="IsPublished" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Language" Relationship="Self.FK_SubscriberLanguages_Languages" FromRole="SubscriberLanguages" ToRole="Languages" />
+    <NavigationProperty Name="Subscriber" Relationship="Self.FK_SubscriberLanguages_Subscribers" FromRole="SubscriberLanguages" ToRole="Subscribers" />
+  </EntityType>
+  <EntityType Name="Subscriber">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SubDomain" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="PreferredDomain" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailVerificationCode" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsEmailVerified" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AddressId" Type="Int64" Nullable="false" />
+    <Property Name="SubscriptionPlanId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Address" Relationship="Self.FK_Subscribers_Addresses" FromRole="Subscribers" ToRole="Addresses" />
+    <NavigationProperty Name="AppLogins" Relationship="Self.FK_AppLogins_Subscribers" FromRole="Subscribers" ToRole="AppLogins" />
+    <NavigationProperty Name="AppSettings" Relationship="Self.FK_AppSettings_Subscribers" FromRole="Subscribers" ToRole="AppSettings" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK_Countries_Subscribers" FromRole="Subscribers" ToRole="Countries" />
+    <NavigationProperty Name="Dashboards" Relationship="Self.FK_Dashboard_Subscribers" FromRole="Subscribers" ToRole="Dashboard" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Subscribers" FromRole="Subscribers" ToRole="Employees" />
+    <NavigationProperty Name="FormSubmissions" Relationship="Self.FK_FormSubmissions_Subscribers" FromRole="Subscribers" ToRole="FormSubmissions" />
+    <NavigationProperty Name="LocalStringResources" Relationship="Self.FK_LocalStringResources_Subscribers" FromRole="Subscribers" ToRole="LocalStringResources" />
+    <NavigationProperty Name="Notifications" Relationship="Self.FK_Notification_Subscribers" FromRole="Subscribers" ToRole="Notification" />
+    <NavigationProperty Name="Operations" Relationship="Self.FK_Operations_Subscribers" FromRole="Subscribers" ToRole="Operations" />
+    <NavigationProperty Name="SubscriberLanguages" Relationship="Self.FK_SubscriberLanguages_Subscribers" FromRole="Subscribers" ToRole="SubscriberLanguages" />
+    <NavigationProperty Name="SubscriptionPlan" Relationship="Self.FK_Subscribers_SubscriptionPlans" FromRole="Subscribers" ToRole="SubscriptionPlans" />
+    <NavigationProperty Name="Forms" Relationship="Creos_StagingModel.FK_Forms_Subscribers" FromRole="Subscriber" ToRole="Form" />
+  </EntityType>
+  <EntityType Name="SubscriptionPlan">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NumberOfUsers" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfForms" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfEntries" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfReports" Type="Int32" Nullable="false" />
+    <Property Name="StorageLimit" Type="Int32" Nullable="false" />
+    <Property Name="SubscriptionFee" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DurationInMonths" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="DisplayOrder" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Subscribers" Relationship="Self.FK_Subscribers_SubscriptionPlans" FromRole="SubscriptionPlans" ToRole="Subscribers" />
+  </EntityType>
+  <Association Name="FK_Addresses_Countries">
+    <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+    <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_StateProvinces">
+    <End Role="StateProvinces" Type="Self.StateProvince" Multiplicity="1" />
+    <End Role="Addresses" Type="Self.Address" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateProvinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="StateProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Addresses">
+    <End Role="Addresses" Type="Self.Address" Multiplicity="1" />
+    <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscribers_Addresses">
+    <End Role="Addresses" Type="Self.Address" Multiplicity="1" />
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppLogins_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="AppLogins" Type="Self.AppLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppLogins">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRoles_AppLogins">
+    <End Role="AppLogins" Type="Self.AppLogin" Multiplicity="1" />
+    <End Role="EmployeeRoles" Type="Self.EmployeeRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppLogins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeRoles">
+        <PropertyRef Name="AppLoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_AppLogins">
+    <End Role="AppLogins" Type="Self.AppLogin" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppLogins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="AppLoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginLogs_AppLogins">
+    <End Role="AppLogins" Type="Self.AppLogin" Multiplicity="1" />
+    <End Role="LoginLogs" Type="Self.LoginLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppLogins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LoginLogs">
+        <PropertyRef Name="AppLoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppSettings_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="AppSettings" Type="Self.AppSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppSettings">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_AppUserInfo">
+    <End Role="AppUserInfo" Type="Self.AppUserInfo" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUserInfo">
+        <PropertyRef Name="AppInfoID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="AppInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Clients">
+    <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Clients">
+    <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+    <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Clients">
+    <End Role="Clients" Type="Self.Client" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__StateProv__Count__6F1576F7">
+    <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+    <End Role="StateProvinces" Type="Self.StateProvince" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StateProvinces">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="Countries" Type="Self.Country" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Employees1">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersion" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="FormVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_Jobs">
+    <End Role="Jobs" Type="Self.Job" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLocations_Employee">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="EmployeeLocations" Type="Self.EmployeeLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeLocations">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLocations_Locations">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="EmployeeLocations" Type="Self.EmployeeLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeLocations">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRoles_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="EmployeeRoles" Type="Self.EmployeeRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Employess">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmissionEmployeeMap_Employees">
+    <End Role="Employees" Type="Self.Employee" Multiplicity="1" />
+    <End Role="SubmissionEmployeeMap" Type="Self.SubmissionEmployeeMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubmissionEmployeeMap">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormAnswers_FormQuestions">
+    <End Role="FormQuestions" Type="Self.FormQuestion" Multiplicity="1" />
+    <End Role="FormAnswers" Type="Self.FormAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormAnswers">
+        <PropertyRef Name="FormQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormAnswers_FormSubmissions">
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="1" />
+    <End Role="FormAnswers" Type="Self.FormAnswer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmissions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormAnswers">
+        <PropertyRef Name="FormSubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormQuestions_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersion" Multiplicity="1" />
+    <End Role="FormQuestions" Type="Self.FormQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormQuestions">
+        <PropertyRef Name="FormVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormQuestions_Languages">
+    <End Role="Languages" Type="Self.Language" Multiplicity="1" />
+    <End Role="FormQuestions" Type="Self.FormQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormQuestions">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSections_FormQuestions">
+    <End Role="FormQuestions" Type="Self.FormQuestion" Multiplicity="1" />
+    <End Role="FormSections" Type="Self.FormSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSections">
+        <PropertyRef Name="FormQueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSectionRole_FormSections">
+    <End Role="FormSections" Type="Self.FormSection" Multiplicity="1" />
+    <End Role="FormSectionRole" Type="Self.FormSectionRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSectionRole">
+        <PropertyRef Name="FormSectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSectionRole_Roles">
+    <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+    <End Role="FormSectionRole" Type="Self.FormSectionRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSectionRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSections_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersion" Multiplicity="1" />
+    <End Role="FormSections" Type="Self.FormSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSections">
+        <PropertyRef Name="VersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersion" Multiplicity="0..1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="FormVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Languages">
+    <End Role="Languages" Type="Self.Language" Multiplicity="0..1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostLocation_FormSubmissions">
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="1" />
+    <End Role="PostLocation" Type="Self.PostLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmissions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PostLocation">
+        <PropertyRef Name="SubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmissionEmployeeMap_FormSubmissions">
+    <End Role="FormSubmissions" Type="Self.FormSubmission" Multiplicity="1" />
+    <End Role="SubmissionEmployeeMap" Type="Self.SubmissionEmployeeMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmissions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubmissionEmployeeMap">
+        <PropertyRef Name="SubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Locations">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="Jobs" Type="Self.Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocaleStringResources_Languages">
+    <End Role="Languages" Type="Self.Language" Multiplicity="1" />
+    <End Role="LocalStringResources" Type="Self.LocalStringResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocalStringResources">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubscriberLanguages_Languages">
+    <End Role="Languages" Type="Self.Language" Multiplicity="1" />
+    <End Role="SubscriberLanguages" Type="Self.SubscriberLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriberLanguages">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocaleStringResources_Operations">
+    <End Role="Operations" Type="Self.Operation" Multiplicity="1" />
+    <End Role="LocalStringResources" Type="Self.LocalStringResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocalStringResources">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocalStringResources_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="LocalStringResources" Type="Self.LocalStringResource" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocalStringResources">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Operations">
+    <End Role="Operations" Type="Self.Operation" Multiplicity="1" />
+    <End Role="Locations" Type="Self.Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Operations_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="Operations" Type="Self.Operation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Operations">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperationSettings_Operation">
+    <End Role="Operations" Type="Self.Operation" Multiplicity="1" />
+    <End Role="OperationSettings" Type="Self.OperationSetting" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OperationSettings">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectForms_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="ProjectForms" Type="Self.ProjectForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectForms">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubscriberLanguages_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="1" />
+    <End Role="SubscriberLanguages" Type="Self.SubscriberLanguage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriberLanguages">
+        <PropertyRef Name="SubcriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscribers_SubscriptionPlans">
+    <End Role="SubscriptionPlans" Type="Self.SubscriptionPlan" Multiplicity="1" />
+    <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubscriptionPlans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="SubscriptionPlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FormziEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="AppLogins" EntityType="Self.AppLogin" />
+    <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
+    <EntitySet Name="AppUserInfoes" EntityType="Self.AppUserInfo" />
+    <EntitySet Name="Clients" EntityType="Self.Client" />
+    <EntitySet Name="Countries" EntityType="Self.Country" />
+    <EntitySet Name="Currencies" EntityType="Self.Currency" />
+    <EntitySet Name="Dashboards" EntityType="Self.Dashboard" />
+    <EntitySet Name="Documents" EntityType="Self.Document" />
+    <EntitySet Name="EmployeeForms" EntityType="Self.EmployeeForm" />
+    <EntitySet Name="EmployeeLocations" EntityType="Self.EmployeeLocation" />
+    <EntitySet Name="EmployeeRoles" EntityType="Self.EmployeeRole" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="FormAnswers" EntityType="Self.FormAnswer" />
+    <EntitySet Name="FormQuestions" EntityType="Self.FormQuestion" />
+    <EntitySet Name="FormSectionRoles" EntityType="Self.FormSectionRole" />
+    <EntitySet Name="FormSections" EntityType="Self.FormSection" />
+    <EntitySet Name="FormSubmissions" EntityType="Self.FormSubmission" />
+    <EntitySet Name="FormTools" EntityType="Self.FormTool" />
+    <EntitySet Name="FormVersions" EntityType="Self.FormVersion" />
+    <EntitySet Name="Jobs" EntityType="Self.Job" />
+    <EntitySet Name="Languages" EntityType="Self.Language" />
+    <EntitySet Name="LocalStringResources" EntityType="Self.LocalStringResource" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="LoginLogs" EntityType="Self.LoginLog" />
+    <EntitySet Name="Notifications" EntityType="Self.Notification" />
+    <EntitySet Name="Operations" EntityType="Self.Operation" />
+    <EntitySet Name="OperationSettings" EntityType="Self.OperationSetting" />
+    <EntitySet Name="PieChartQueryResults" EntityType="Self.PieChartQueryResult" />
+    <EntitySet Name="PostLocations" EntityType="Self.PostLocation" />
+    <EntitySet Name="Projects" EntityType="Self.Project" />
+    <EntitySet Name="ProjectForms" EntityType="Self.ProjectForm" />
+    <EntitySet Name="QueryTableResults" EntityType="Self.QueryTableResult" />
+    <EntitySet Name="Roles" EntityType="Self.Role" />
+    <EntitySet Name="StateProvinces" EntityType="Self.StateProvince" />
+    <EntitySet Name="SubmissionEmployeeMaps" EntityType="Self.SubmissionEmployeeMap" />
+    <EntitySet Name="SubscriberLanguages" EntityType="Self.SubscriberLanguage" />
+    <EntitySet Name="Subscribers" EntityType="Self.Subscriber" />
+    <EntitySet Name="SubscriptionPlans" EntityType="Self.SubscriptionPlan" />
+    <AssociationSet Name="FK_Addresses_Countries" Association="Self.FK_Addresses_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_StateProvinces" Association="Self.FK_Addresses_StateProvinces">
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Addresses" Association="Self.FK_Locations_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_Addresses" Association="Self.FK_Subscribers_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppLogins_Subscribers" Association="Self.FK_AppLogins_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="AppLogins" EntitySet="AppLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRoles_AppLogins" Association="Self.FK_EmployeeRoles_AppLogins">
+      <End Role="AppLogins" EntitySet="AppLogins" />
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_AppLogins" Association="Self.FK_Employees_AppLogins">
+      <End Role="AppLogins" EntitySet="AppLogins" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginLogs_AppLogins" Association="Self.FK_LoginLogs_AppLogins">
+      <End Role="AppLogins" EntitySet="AppLogins" />
+      <End Role="LoginLogs" EntitySet="LoginLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppSettings_Subscribers" Association="Self.FK_AppSettings_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="AppSettings" EntitySet="AppSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_AppUserInfo" Association="Self.FK_Notification_AppUserInfo">
+      <End Role="AppUserInfo" EntitySet="AppUserInfoes" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Clients" Association="Self.FK_EmployeeForms_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Clients" Association="Self.FK_Locations_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Clients" Association="Self.FK_Project_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__StateProv__Count__6F1576F7" Association="Self.FK__StateProv__Count__6F1576F7">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Subscribers" Association="Self.FK_Countries_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Employees" Association="Self.FK_Dashboard_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Dashboard" EntitySet="Dashboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Employees1" Association="Self.FK_Dashboard_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Dashboard" EntitySet="Dashboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_FormVersions" Association="Self.FK_Dashboard_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="Dashboard" EntitySet="Dashboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Subscribers" Association="Self.FK_Dashboard_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Dashboard" EntitySet="Dashboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_Employees" Association="Self.FK_Documents_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_Jobs" Association="Self.FK_Documents_Jobs">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Employees" Association="Self.FK_EmployeeForms_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Project" Association="Self.FK_EmployeeForms_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLocations_Employee" Association="Self.FK_EmployeeLocations_Employee">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeLocations" EntitySet="EmployeeLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLocations_Locations" Association="Self.FK_EmployeeLocations_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="EmployeeLocations" EntitySet="EmployeeLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRoles_Roles" Association="Self.FK_EmployeeRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Subscribers" Association="Self.FK_Employees_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Employess" Association="Self.FK_FormSubmissions_Employess">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Employees" Association="Self.FK_Jobs_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmissionEmployeeMap_Employees" Association="Self.FK_SubmissionEmployeeMap_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="SubmissionEmployeeMap" EntitySet="SubmissionEmployeeMaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormAnswers_FormQuestions" Association="Self.FK_FormAnswers_FormQuestions">
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+      <End Role="FormAnswers" EntitySet="FormAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormAnswers_FormSubmissions" Association="Self.FK_FormAnswers_FormSubmissions">
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+      <End Role="FormAnswers" EntitySet="FormAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormQuestions_FormVersions" Association="Self.FK_FormQuestions_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormQuestions_Languages" Association="Self.FK_FormQuestions_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSections_FormQuestions" Association="Self.FK_FormSections_FormQuestions">
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+      <End Role="FormSections" EntitySet="FormSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSectionRole_FormSections" Association="Self.FK_FormSectionRole_FormSections">
+      <End Role="FormSections" EntitySet="FormSections" />
+      <End Role="FormSectionRole" EntitySet="FormSectionRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSectionRole_Roles" Association="Self.FK_FormSectionRole_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="FormSectionRole" EntitySet="FormSectionRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSections_FormVersions" Association="Self.FK_FormSections_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="FormSections" EntitySet="FormSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_FormVersions" Association="Self.FK_FormSubmissions_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Languages" Association="Self.FK_FormSubmissions_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Subscribers" Association="Self.FK_FormSubmissions_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostLocation_FormSubmissions" Association="Self.FK_PostLocation_FormSubmissions">
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+      <End Role="PostLocation" EntitySet="PostLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmissionEmployeeMap_FormSubmissions" Association="Self.FK_SubmissionEmployeeMap_FormSubmissions">
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+      <End Role="SubmissionEmployeeMap" EntitySet="SubmissionEmployeeMaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Locations" Association="Self.FK_Jobs_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocaleStringResources_Languages" Association="Self.FK_LocaleStringResources_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="LocalStringResources" EntitySet="LocalStringResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubscriberLanguages_Languages" Association="Self.FK_SubscriberLanguages_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="SubscriberLanguages" EntitySet="SubscriberLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocaleStringResources_Operations" Association="Self.FK_LocaleStringResources_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="LocalStringResources" EntitySet="LocalStringResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocalStringResources_Subscribers" Association="Self.FK_LocalStringResources_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="LocalStringResources" EntitySet="LocalStringResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Operations" Association="Self.FK_Locations_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_Subscribers" Association="Self.FK_Notification_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Notification" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operations_Subscribers" Association="Self.FK_Operations_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Operations" EntitySet="Operations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperationSettings_Operation" Association="Self.FK_OperationSettings_Operation">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="OperationSettings" EntitySet="OperationSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectForms_Project" Association="Self.FK_ProjectForms_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="ProjectForms" EntitySet="ProjectForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubscriberLanguages_Subscribers" Association="Self.FK_SubscriberLanguages_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="SubscriberLanguages" EntitySet="SubscriberLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_SubscriptionPlans" Association="Self.FK_Subscribers_SubscriptionPlans">
+      <End Role="SubscriptionPlans" EntitySet="SubscriptionPlans" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
+    </AssociationSet>
+    <FunctionImport Name="parseJSON" IsComposable="true" ReturnType="Collection(Creos_StagingModel.parseJSON_Result)">
+      <Parameter Name="JSON" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="udf_GetEmployeeDetailby_Appinfo_Employee_Id" IsComposable="true" ReturnType="Collection(Creos_StagingModel.udf_GetEmployeeDetailby_Appinfo_Employee_Id_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GenerateFormTable" ReturnType="Collection(Creos_StagingModel.GenerateFormTable_Result)">
+      <Parameter Name="FormID" Mode="In" Type="Int32" />
+      <Parameter Name="FormVersionID" Mode="In" Type="Int32" />
+      <Parameter Name="QID" Mode="In" Type="Int32" />
+      <Parameter Name="strParam" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GenerateFormTableforChart" ReturnType="Collection(Creos_StagingModel.GenerateFormTableforChart_Result)">
+      <Parameter Name="FormID" Mode="In" Type="Int32" />
+      <Parameter Name="FormVersionID" Mode="In" Type="Int32" />
+      <Parameter Name="FormQuestionIDX" Mode="In" Type="Int32" />
+      <Parameter Name="FormQuestionIDY" Mode="In" Type="Int32" />
+      <Parameter Name="strParam" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetChartDataByFormID">
+      <Parameter Name="fromId" Mode="In" Type="Int32" />
+      <Parameter Name="versionId" Mode="In" Type="Int32" />
+      <Parameter Name="xAxis" Mode="In" Type="Int32" />
+      <Parameter Name="yAxis" Mode="In" Type="Int32" />
+      <Parameter Name="Columns" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetFormSubmissionByMe" ReturnType="Collection(Creos_StagingModel.GetFormSubmissionByMe_Result)">
+      <Parameter Name="DeviceId" Mode="In" Type="String" />
+      <Parameter Name="SubscriberId" Mode="In" Type="Int32" />
+      <Parameter Name="IsApproved" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetSubmissionByLatLngDis" ReturnType="Collection(Creos_StagingModel.GetSubmissionByLatLngDis_Result)">
+      <Parameter Name="orig_lat" Mode="In" Type="Decimal" />
+      <Parameter Name="orig_long" Mode="In" Type="Decimal" />
+      <Parameter Name="bounding_distance" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="usp_GetFormSubmissionDetailByFormID">
+      <Parameter Name="subscriberId" Mode="In" Type="Int32" />
+      <Parameter Name="fromId" Mode="In" Type="Int32" />
+      <Parameter Name="versionId" Mode="In" Type="Int32" />
+      <Parameter Name="IsHtml" Mode="In" Type="Int32" />
+      <Parameter Name="Page" Mode="In" Type="Int32" />
+      <Parameter Name="RecsPerPage" Mode="In" Type="Int32" />
+      <Parameter Name="Path" Mode="In" Type="String" />
+      <Parameter Name="AppLoginId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="RoleReportsToes" EntityType="Creos_StagingModel.RoleReportsTo" />
+    <AssociationSet Name="FK_RoleReportsTo_Roles2" Association="Creos_StagingModel.FK_RoleReportsTo_Roles2">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleReportsTo" EntitySet="RoleReportsToes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RoleReportsTo_Roles3" Association="Creos_StagingModel.FK_RoleReportsTo_Roles3">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="RoleReportsTo" EntitySet="RoleReportsToes" />
+    </AssociationSet>
+    <EntitySet Name="UserReportToes" EntityType="Creos_StagingModel.UserReportTo" />
+    <EntitySet Name="SubmissionLogs" EntityType="Creos_StagingModel.SubmissionLog" />
+    <AssociationSet Name="FK_SubmissionLogs_FormSubmissions1" Association="Creos_StagingModel.FK_SubmissionLogs_FormSubmissions1">
+      <End Role="FormSubmission" EntitySet="FormSubmissions" />
+      <End Role="SubmissionLog" EntitySet="SubmissionLogs" />
+    </AssociationSet>
+    <FunctionImport Name="usp_GetFormSubmissionDetailByFormID_Demo">
+      <Parameter Name="subscriberId" Mode="In" Type="Int32" />
+      <Parameter Name="fromId" Mode="In" Type="Int32" />
+      <Parameter Name="versionId" Mode="In" Type="Int32" />
+      <Parameter Name="IsHtml" Mode="In" Type="Int32" />
+      <Parameter Name="Page" Mode="In" Type="Int32" />
+      <Parameter Name="RecsPerPage" Mode="In" Type="Int32" />
+      <Parameter Name="Path" Mode="In" Type="String" />
+      <Parameter Name="AppLoginId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="Forms" EntityType="Creos_StagingModel.Form" />
+    <AssociationSet Name="FK_Dashboard_Forms" Association="Creos_StagingModel.FK_Dashboard_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="Dashboard" EntitySet="Dashboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Forms" Association="Creos_StagingModel.FK_EmployeeForms_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="EmployeeForm" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forms_Employees" Association="Creos_StagingModel.FK_Forms_Employees">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormQuestions_Forms" Association="Creos_StagingModel.FK_FormQuestions_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="FormQuestion" EntitySet="FormQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forms_Languages" Association="Creos_StagingModel.FK_Forms_Languages">
+      <End Role="Language" EntitySet="Languages" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forms_Subscribers" Association="Creos_StagingModel.FK_Forms_Subscribers">
+      <End Role="Subscriber" EntitySet="Subscribers" />
+      <End Role="Form" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSections_Forms" Association="Creos_StagingModel.FK_FormSections_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="FormSection" EntitySet="FormSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Forms" Association="Creos_StagingModel.FK_FormSubmissions_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="FormSubmission" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormVersions_Forms" Association="Creos_StagingModel.FK_FormVersions_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="FormVersion" EntitySet="FormVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Forms" Association="Creos_StagingModel.FK_Jobs_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="Job" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectForms_Forms" Association="Creos_StagingModel.FK_ProjectForms_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="ProjectForm" EntitySet="ProjectForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmissionLogs_Forms" Association="Creos_StagingModel.FK_SubmissionLogs_Forms">
+      <End Role="Form" EntitySet="Forms" />
+      <End Role="SubmissionLog" EntitySet="SubmissionLogs" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="GenerateFormTable_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Value" Nullable="true" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GenerateFormTableforChart_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Value" Nullable="true" />
+    <Property Type="Int32" Name="Appreciation" Nullable="true" />
+    <Property Type="Int32" Name="Issue" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetFormSubmissionByMe_Result">
+    <Property Type="Int64" Name="FormSubmissionId" Nullable="false" />
+    <Property Type="Decimal" Name="Latitude" Nullable="true" Precision="20" Scale="17" />
+    <Property Type="Decimal" Name="Longitude" Nullable="true" Precision="20" Scale="17" />
+    <Property Type="Int64" Name="FormId" Nullable="false" />
+    <Property Type="Guid" Name="FolderName" Nullable="false" />
+    <Property Type="String" Name="LatLong" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="SubmittedOn" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="SubscriberId" Nullable="false" />
+    <Property Type="Int32" Name="IsApproved" Nullable="true" />
+    <Property Type="String" Name="DeviceId" Nullable="false" MaxLength="50" />
+    <Property Type="Int64" Name="FormAnswerId" Nullable="false" />
+    <Property Type="String" Name="FormAnswerValue" Nullable="true" />
+    <Property Type="Int32" Name="FormAnswerElementType" Nullable="false" />
+    <Property Type="Int64" Name="FormQuestionId" Nullable="false" />
+    <Property Type="String" Name="FormName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FormImage" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetSubmissionByLatLngDis_Result">
+    <Property Type="Int64" Name="FormSubmissionId" Nullable="false" />
+    <Property Type="Decimal" Name="Latitude" Nullable="true" Precision="20" Scale="17" />
+    <Property Type="Decimal" Name="Longitude" Nullable="true" Precision="20" Scale="17" />
+    <Property Type="Int64" Name="FormId" Nullable="false" />
+    <Property Type="Guid" Name="FolderName" Nullable="false" />
+    <Property Type="String" Name="LatLong" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="SubmittedOn" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="SubscriberId" Nullable="false" />
+    <Property Type="Int32" Name="IsApproved" Nullable="true" />
+    <Property Type="Int64" Name="FormAnswerId" Nullable="false" />
+    <Property Type="String" Name="FormAnswerValue" Nullable="true" />
+    <Property Type="Int32" Name="FormAnswerElementType" Nullable="false" />
+    <Property Type="Int64" Name="FormQuestionId" Nullable="false" />
+    <Property Type="String" Name="FormName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="FormImage" Nullable="true" MaxLength="100" />
+    <Property Type="Double" Name="Distance" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="RoleReportsTo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="ReportToId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <NavigationProperty Name="Role" Relationship="Creos_StagingModel.FK_RoleReportsTo_Roles2" FromRole="RoleReportsTo" ToRole="Role" />
+    <NavigationProperty Name="Role1" Relationship="Creos_StagingModel.FK_RoleReportsTo_Roles3" FromRole="RoleReportsTo" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK_RoleReportsTo_Roles2">
+    <End Type="Creos_StagingModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="Creos_StagingModel.RoleReportsTo" Role="RoleReportsTo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleReportsTo">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RoleReportsTo_Roles3">
+    <End Type="Creos_StagingModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="Creos_StagingModel.RoleReportsTo" Role="RoleReportsTo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="RoleReportsTo">
+        <PropertyRef Name="ReportToId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserReportTo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpId" Type="Int64" Nullable="false" />
+    <Property Name="EmpRoleId" Type="Int32" Nullable="false" />
+    <Property Name="ReportToEmpId" Type="Int64" Nullable="false" />
+    <Property Name="ReportToEmpRoleId" Type="Int32" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubmissionLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FormId" Type="Int64" Nullable="false" />
+    <Property Name="SubmissionId" Type="Int64" Nullable="false" />
+    <Property Name="EmployeeId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="FormSubmission" Relationship="Creos_StagingModel.FK_SubmissionLogs_FormSubmissions1" FromRole="SubmissionLog" ToRole="FormSubmission" />
+    <NavigationProperty Name="Form" Relationship="Creos_StagingModel.FK_SubmissionLogs_Forms" FromRole="SubmissionLog" ToRole="Form" />
+  </EntityType>
+  <Association Name="FK_SubmissionLogs_FormSubmissions1">
+    <End Type="Creos_StagingModel.FormSubmission" Role="FormSubmission" Multiplicity="1" />
+    <End Type="Creos_StagingModel.SubmissionLog" Role="SubmissionLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmission">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubmissionLog">
+        <PropertyRef Name="SubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Form">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int64" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SubscriberId" Type="Int32" Nullable="false" />
+    <Property Name="LanguageId" Type="Int32" Nullable="false" />
+    <Property Name="OrderBy" Type="Int32" />
+    <Property Name="WebFormUID" Type="String" Nullable="false" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="WorkFlowEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="IsPrivateForm" Type="Boolean" />
+    <NavigationProperty Name="Dashboards" Relationship="Creos_StagingModel.FK_Dashboard_Forms" FromRole="Form" ToRole="Dashboard" />
+    <NavigationProperty Name="EmployeeForms" Relationship="Creos_StagingModel.FK_EmployeeForms_Forms" FromRole="Form" ToRole="EmployeeForm" />
+    <NavigationProperty Name="Employee" Relationship="Creos_StagingModel.FK_Forms_Employees" FromRole="Form" ToRole="Employee" />
+    <NavigationProperty Name="FormQuestions" Relationship="Creos_StagingModel.FK_FormQuestions_Forms" FromRole="Form" ToRole="FormQuestion" />
+    <NavigationProperty Name="Language" Relationship="Creos_StagingModel.FK_Forms_Languages" FromRole="Form" ToRole="Language" />
+    <NavigationProperty Name="Subscriber" Relationship="Creos_StagingModel.FK_Forms_Subscribers" FromRole="Form" ToRole="Subscriber" />
+    <NavigationProperty Name="FormSections" Relationship="Creos_StagingModel.FK_FormSections_Forms" FromRole="Form" ToRole="FormSection" />
+    <NavigationProperty Name="FormSubmissions" Relationship="Creos_StagingModel.FK_FormSubmissions_Forms" FromRole="Form" ToRole="FormSubmission" />
+    <NavigationProperty Name="FormVersions" Relationship="Creos_StagingModel.FK_FormVersions_Forms" FromRole="Form" ToRole="FormVersion" />
+    <NavigationProperty Name="Jobs" Relationship="Creos_StagingModel.FK_Jobs_Forms" FromRole="Form" ToRole="Job" />
+    <NavigationProperty Name="ProjectForms" Relationship="Creos_StagingModel.FK_ProjectForms_Forms" FromRole="Form" ToRole="ProjectForm" />
+    <NavigationProperty Name="SubmissionLogs" Relationship="Creos_StagingModel.FK_SubmissionLogs_Forms" FromRole="Form" ToRole="SubmissionLog" />
+    <Property Name="IsVisibleSection" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Dashboard_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.Dashboard" Role="Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.EmployeeForm" Role="EmployeeForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForm">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forms_Employees">
+    <End Type="Creos_StagingModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Form">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormQuestions_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.FormQuestion" Role="FormQuestion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormQuestion">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forms_Languages">
+    <End Type="Creos_StagingModel.Language" Role="Language" Multiplicity="1" />
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Language">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Form">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forms_Subscribers">
+    <End Type="Creos_StagingModel.Subscriber" Role="Subscriber" Multiplicity="1" />
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscriber">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Form">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSections_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.FormSection" Role="FormSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSection">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.FormSubmission" Role="FormSubmission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmission">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormVersions_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.FormVersion" Role="FormVersion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormVersion">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.Job" Role="Job" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Job">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectForms_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.ProjectForm" Role="ProjectForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectForm">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmissionLogs_Forms">
+    <End Type="Creos_StagingModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="Creos_StagingModel.SubmissionLog" Role="SubmissionLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubmissionLog">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

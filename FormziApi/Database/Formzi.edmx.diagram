@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d9ab700ed54b445eb2ceeb18ad83df8d" Name="Diagram1">
+        <EntityTypeShape EntityType="Creos_StagingModel.Address" Width="1.5" PointX="9.75" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.AppLogin" Width="1.5" PointX="5.25" PointY="34.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.AppSetting" Width="1.5" PointX="5.25" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.AppUserInfo" Width="1.5" PointX="3" PointY="46.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Client" Width="1.5" PointX="9.75" PointY="55.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Country" Width="1.5" PointX="5.25" PointY="48.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Currency" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Dashboard" Width="1.5" PointX="12.75" PointY="39" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Document" Width="1.5" PointX="12.75" PointY="35.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.EmployeeForm" Width="1.5" PointX="15.75" PointY="38" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.EmployeeLocation" Width="1.5" PointX="15.75" PointY="34.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.EmployeeRole" Width="1.5" PointX="7.5" PointY="35.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Employee" Width="1.5" PointX="10.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormAnswer" Width="1.5" PointX="25.5" PointY="50.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormQuestion" Width="1.5" PointX="20.25" PointY="49.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormSectionRole" Width="1.5" PointX="24.75" PointY="54.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormSection" Width="1.5" PointX="22.5" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormSubmission" Width="1.5" PointX="23.25" PointY="43.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormTool" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.FormVersion" Width="1.5" PointX="18" PointY="57" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Job" Width="1.5" PointX="18" PointY="45" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Language" Width="1.5" PointX="13.5" PointY="44.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.LocalStringResource" Width="1.5" PointX="7.5" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Location" Width="1.5" PointX="12" PointY="54" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.LoginLog" Width="1.5" PointX="7.5" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Notification" Width="1.5" PointX="5.25" PointY="42.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Operation" Width="1.5" PointX="5.25" PointY="57.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.OperationSetting" Width="1.5" PointX="7.5" PointY="58.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.PieChartQueryResult" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.PostLocation" Width="1.5" PointX="25.5" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Project" Width="1.5" PointX="13.5" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.ProjectForm" Width="1.5" PointX="21" PointY="44.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.QueryTableResult" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Role" Width="1.5" PointX="5.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.StateProvince" Width="1.5" PointX="7.5" PointY="53.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.SubmissionEmployeeMap" Width="1.5" PointX="25.5" PointY="41.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.SubscriberLanguage" Width="1.5" PointX="8.25" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Subscriber" Width="1.5" PointX="3" PointY="38.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Creos_StagingModel.SubscriptionPlan" Width="1.5" PointX="0.75" PointY="40.25" IsExpanded="true" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Addresses_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Addresses_StateProvinces" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Locations_Addresses" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Subscribers_Addresses" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_AppLogins_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeRoles_AppLogins" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Employees_AppLogins" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_LoginLogs_AppLogins" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_AppSettings_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Notification_AppUserInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeForms_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Locations_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Project_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK__StateProv__Count__6F1576F7" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Countries_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Dashboard_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Dashboard_Employees1" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Dashboard_FormVersions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Dashboard_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Documents_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Documents_Jobs" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeForms_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeForms_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeLocations_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeLocations_Locations" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeRoles_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Employees_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSubmissions_Employess" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Jobs_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_SubmissionEmployeeMap_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormAnswers_FormQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormAnswers_FormSubmissions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormQuestions_FormVersions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormQuestions_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSections_FormQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSectionRole_FormSections" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSectionRole_Roles" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSections_FormVersions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSubmissions_FormVersions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSubmissions_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSubmissions_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_PostLocation_FormSubmissions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_SubmissionEmployeeMap_FormSubmissions" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Jobs_Locations" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_LocaleStringResources_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_SubscriberLanguages_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_LocaleStringResources_Operations" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_LocalStringResources_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Locations_Operations" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Notification_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Operations_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_OperationSettings_Operation" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_ProjectForms_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_SubscriberLanguages_Subscribers" ManuallyRouted="false" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Subscribers_SubscriptionPlans" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Creos_StagingModel.RoleReportsTo" Width="1.5" PointX="7.5" PointY="26.5" />
+        <AssociationConnector Association="Creos_StagingModel.FK_RoleReportsTo_Roles2" />
+        <AssociationConnector Association="Creos_StagingModel.FK_RoleReportsTo_Roles3" />
+        <EntityTypeShape EntityType="Creos_StagingModel.UserReportTo" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="Creos_StagingModel.SubmissionLog" Width="1.5" PointX="28.5" PointY="45.875" />
+        <AssociationConnector Association="Creos_StagingModel.FK_SubmissionLogs_FormSubmissions1" />
+        <EntityTypeShape EntityType="Creos_StagingModel.Form" Width="1.5" PointX="18.75" PointY="37.25" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Dashboard_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_EmployeeForms_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Forms_Employees" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormQuestions_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Forms_Languages" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Forms_Subscribers" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSections_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormSubmissions_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_FormVersions_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_Jobs_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_ProjectForms_Forms" />
+        <AssociationConnector Association="Creos_StagingModel.FK_SubmissionLogs_Forms" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

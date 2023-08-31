@@ -1,0 +1,1168 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormziApi</name>
+    </assembly>
+    <members>
+        <member name="M:FormziApi.App_Start.VideoDataResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <summary>
+            The below method will respond with the Video file
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:FormziApi.Controllers.DashboardController.DownloadChartData(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            i-Witness Specific
+            </summary>
+            <param name="formId"></param>
+            <param name="index"></param>
+            <param name="subscriberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.DashboardController.downloadFormSubmissionExcel(System.Int32,System.Int32)">
+            <summary>
+            Download excel. Stored Procedure is used to fetch data.
+            </summary>
+            <param name="formId">1</param>
+            <param name="formVersionId">1</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,FormziApi.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:FormziApi.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            Generates model descriptions for given types.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FormziApi.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:FormziApi.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:FormziApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FormziApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,FormziApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,FormziApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(FormziApi.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:FormziApi.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},FormziApi.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:FormziApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:FormziApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:FormziApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleKey.#ctor(FormziApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:FormziApi.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,FormziApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:FormziApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:FormziApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FormziApi.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:FormziApi.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:FormziApi.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FormziApi.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.GetSettingsByKey(System.String)">
+            <summary>
+            App Setting details by key
+            </summary>
+            <param name="key">Key Name Ex. OTPTemplate</param>
+            <returns>App Setting model contains Id, Key and value</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.GetValueByKey(System.String)">
+            <summary>
+            App Setting details by value
+            </summary>
+            <param name="key">Key Name Ex. OTPTemplate</param>
+            <returns>Value field only</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.SettingList(System.Int32)">
+            <summary>
+            App Setting list by subscriber id.
+            </summary>
+            <param name="subscriberId">Subscriber id Ex. 1</param>
+            <returns>List of settings containing Id, Key, Value, Active and Filed.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.AddSetting(FormziApi.Database.AppSetting)">
+            <summary>
+            Add App Setting details.
+            </summary>
+            <param name="model">Key, Value, SubscriberId, Active and IsReadonly field.</param>
+            <returns>Returns True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.UpdateSetting(FormziApi.Database.AppSetting)">
+            <summary>
+            Update Setting details.
+            </summary>
+            <param name="model">Key, Value, SubscriberId, Active and IsReadonly field.</param>
+            <returns>Returns True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.RemoveSetting(System.Int32)">
+            <summary>
+            Deactive record
+            </summary>
+            <param name="id">Id of record.</param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.SettingById(System.Int32,System.Int32)">
+            <summary>
+            Single App Setting record by id and subscriberId wise.
+            </summary>
+            <param name="id">record id</param>
+            <param name="subscriberId">subscriber id</param>
+            <returns>Model or null</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.SubscriberSettingsByKey(System.String,System.Int32)">
+            <summary>
+            Single App Setting record by Key and subscriberId wise.
+            </summary>
+            <param name="key">Key Name Ex. OTPTemplate</param>
+            <param name="subscriberId">Subscriber id Ex. 1</param>
+            <returns>Model or null</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.AppSettingsController.GenerateAuthKey(System.Int32)">
+            <summary>
+            i-Witness - Generate Auth Key by subscriber id.
+            </summary>
+            <param name="subscriberId">subscriber id. Ex. 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.AddFormSubmission">
+            <summary>
+            Submit Form - Creates folder based on GUID and Save JSON file in it.
+            MAIN METHOD FOR SUBMITTING FORM ----- 1st method call when form is submitted
+            Formzi, i-witness specific  
+            </summary>
+            <returns>Return path of form submitted.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.AddFormSubmissionNew">
+            <summary>
+            Submit Form (new method and basic POST code for jaydeep's mobile app) - Creates folder based on GUID and Save JSON file in it.
+            MAIN METHOD FOR SUBMITTING FORM ----- 1st method call when form is submitted
+            Formzi, i-witness specific  
+            </summary>
+            <returns>Return path of form submitted.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.GetList(System.Int32,System.Nullable{System.Int32},System.Int64,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            List of submission. Call SP to fetch data.
+            </summary>
+            <param name="subscriberId"></param>
+            <param name="status">Approved, Processing. Ex. 1,2,3</param>
+            <param name="id"></param>
+            <param name="action">Approved, Accepted, Rejected. Ex. 1,2,3</param>
+            <param name="formVersionId">1,2,3...</param>
+            <returns>Return List of submission</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.EditProcessingStatus(System.Int32,System.Boolean)">
+            <summary>
+            No more used now. Change status of submission. Ex. Processing is true/false.
+            </summary>
+            <param name="id">submission id</param>
+            <param name="processStatus">True/False</param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.GetFormSubmissionsListByFormId(System.Int64)">
+            <summary>
+            List of submission by form id. Form submission table details will be return.
+            </summary>
+            <param name="id">form id</param>
+            <returns>List of submission.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.EditFormSubmission(System.Int32,System.Int32,System.Int64,System.Nullable{System.Int32})">
+            <summary>
+            No more used now. Change state of submission. Ex. Approved, Rejected etc.
+            </summary>
+            <param name="id"></param>
+            <param name="isApproved"></param>
+            <param name="employeeId"></param>
+            <param name="status"></param>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.UploadFile">
+            <summary>
+            File Upload. Common file upload method (EX. Form image, employee profile image)
+            </summary>
+            <param name="createUniqueName"></param>
+            <param name="folderPath"></param>
+            <param name="employeeId"></param>
+            
+            <returns>Return Http response message</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.GetFormSubmissionsAnalytics(System.Int64)">
+            <summary>
+            No more use. Previously it was used in BI module of formzi , Reports and chart made by divyesh
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.IWitnessResolveFormSubmission(System.Int64,System.Int64)">
+            <summary>
+            Deprecated Method. Resolve submission. 
+            I-Witness specific
+            SUBMISSION_RESOLVE value is 3 
+            </summary>
+            <param name="id"></param>
+            <param name="appLoginId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.FormAnalysis">
+            <summary>
+            Used in BI module of formzi , Reports and chart made by divyesh
+            added by Jay
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.RemoveEmployeeSubmissionMap(System.Int64)">
+            <summary>
+            Remove employee assignment with submission
+            </summary>
+            <param name="submissionId"></param>
+            <param name="employeeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.SubmissionInfo(System.Int64)">
+            <summary>
+            Get details of submission by submission id. It also includes AppInfo and location details.
+            </summary>
+            <param name="submissionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.GetFormSubmissionsListByFormId(System.Int32)">
+            <summary>
+            List of submission by user id. (Only forms assigned to user)
+            </summary>
+            <param name="id">Employee id</param>
+            <returns>List of submission.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.EditSyncStatus(System.Guid)">
+            <summary>
+            When form submitted, after submitting form and its images, it it changes flag of IsSync to true.
+            For i-witness Mobile  app
+            </summary>
+            <param name="folderName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.SubmissionAction(System.Int64,System.Int64,System.Int64,System.Int32)">
+            <summary>
+            No more in use. Change status of submission ex. Resolved, Reject etc
+            For i-witness mobile app 
+            </summary>
+            <param name="submissionId"></param>
+            <param name="currentEmpId"></param>
+            <param name="assignToEmpId"></param>
+            <param name="actionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.sendInquiryMail(System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            I-Witness dashboard contact form inquiry mail.
+            </summary>
+            <param name="name"></param>
+            <param name="email"></param>
+            <param name="phone"></param>
+            <param name="message"></param>
+            <param name="languageId"></param>
+            <param name="subscriberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.AssignEmployeeToSubmission(System.Int32,System.Int64,System.Int64)">
+            [Route("api/InnfyAssignEmployeeToSubmission")]
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.BulkAssignEmployeeToSubmission(System.Int32,System.String,System.Int64)">
+            [Route("api/InnfyBulkAssignEmployeeToSubmission")]
+        </member>
+        <member name="M:FormziApi.Controllers.FormSubmissionsController.GetResolvedIssueByEmployee(System.Int64,System.Int32)">
+            <summary>
+            No more in use. I-Witness Specific
+            </summary>
+            <param name="employeeId"></param>
+            <param name="subscriberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.ClientController.GetClientList(System.Int32)">
+            <summary>
+            List of client by subscriber id.
+            </summary>
+            <param name="subscriberId">Subscriber id. Ex. 1</param>
+            <returns>List of client containing Id, Unique Number, FullName, Email, Company Name, Phone number, IsDeleted and Sites list.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.ClientController.GetClient(System.Int32)">
+            <summary>
+            Single client details by client id.
+            </summary>
+            <param name="id">client id. Ex. 1</param>
+            <returns>Client containing Id, Unique Number, FullName, Email, Company Name, Phone number, IsDeleted and Location list.</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.ClientController.GetCPFList(FormziApi.Models.EmployeeProjectFormDateModel)">
+            <summary>
+            Get client, project and form list
+            Mobile Specific
+            </summary>
+            <param name="employeeId"></param>
+            <returns>Returns Client, project and form list of employee</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.ClientController.GetCPFList2(FormziApi.Models.EmployeeProjectFormDateModel)">
+            <summary>
+            Get client, project and form list
+            Mobile Specific
+            </summary>
+            <param name="employeeId"></param>
+            <returns>Returns Client, project and form list of employee</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.ClientController.CheckCPFUpdated(FormziApi.Models.EmployeeProjectFormDateModel)">
+            <summary>
+            Get client, project and form list
+            Mobile Specific
+            </summary>
+            <param name="employeeId"></param>
+            <returns>Returns Client, project and form list of employee</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.CurrencyController.GetCurrency">
+            <summary>
+            Get currency list
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.GetEmployeeList(System.Int32)">
+            <summary>
+            Get List of employees
+            </summary>
+            <param name="subscriberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.DeleteEmployee(System.String,System.Int64,System.String,System.Int64)">
+            <summary>
+            Remove employee's profile pic and id proof 
+            DELETE Image
+            </summary>
+            <param name="imageType">profilePic,IdProof</param>
+            <param name="empId">number</param>
+            <param name="fileName"></param>
+            <param name="subscriberId">number</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.CheckLogin(System.String,System.String,System.String)">
+            <summary>
+            Check for login
+            </summary>
+            <param name="email">Email address of user</param>
+            <param name="password">Password of user</param>
+            <param name="deviceId">DeviceId of mobile/tablet</param>
+            <returns>
+            SubscriberLogo, FileUrl, OpetationCount, AppLoginId, RoleId, RoleValue, SubscriberId, Employee, IsReset, ResetLink
+            FileUrl -> Use to get file from this url.
+            OpetationCount -> No of operations.
+            IsReset -> will be true in case of forgot password.
+            ResetLink -> In case of forgot password Reset link will be sent.
+            </returns>
+            
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.CreateToken(System.String,System.Object@)">
+            <summary>
+            Create a Jwt with user information
+            </summary>
+            <param name="subscriberToken"></param>
+            <param name="dbUser"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.CheckLoginFormzi(System.String,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Mobile Application specific
+            </summary>
+            <param name="email"></param>
+            <param name="password"></param>
+            <param name="deviceId"></param>
+            <returns>User details</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.ForgotPasswordFormzi(System.String,System.Int32,System.Boolean)">
+            <summary>
+            Mobile specific. Forgot password.
+            </summary>
+            <param name="email"></param>
+            <param name="languageId"></param>
+            <param name="isMobile">1 for mobile, 0 for web</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.EmployeesController.IWitnessLoginAuthenticate(System.Int32,System.String,System.String,System.Int64)">
+            <summary>
+            I-Witness specific - No more in use.
+            Resolve issue from i-witness.org
+            Check login credential
+            added by jay
+            </summary>
+            <param name="subscriberId"></param>
+            <param name="email"></param>
+            <param name="password"></param>
+            <param name="formId">it's form submission id</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormAnswersController.AddFormAnswer(System.String[])">
+            <summary>
+            Add form answers when form fills.
+            2nd method call when form is submitted.
+            It will read json file which is physically stored.
+            </summary>
+            <param name="JSONUrl"></param>
+        </member>
+        <member name="M:FormziApi.Controllers.FormAnswersController.PostFormAnswer(System.Collections.Generic.List{FormziApi.Database.FormAnswer})">
+            <summary>
+            Add form answers
+            </summary>
+            <param name="formAnswers"></param>
+        </member>
+        <member name="M:FormziApi.Controllers.FormAnswersController.SubmissionList(FormziApi.Models.FormSubmissionDateModel)">
+            <summary>
+            Get list of submission (I-Witness specific)
+            </summary>
+            <param name="model">DateTime, UserDate</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormAnswersController.SubmissionList(FormziApi.Models.FormSubmissionLatLngDateModel)">
+            <summary>
+            Added by jay on 18-2-2016
+            i-witness specific, Mobile
+            Get form submission by lat long and zoom        
+            </summary>
+            <param name="model">DateTime, UserDate</param>
+            <returns></returns>        
+        </member>
+        <member name="M:FormziApi.Controllers.FormAnswersController.SubmissionListByMe(FormziApi.Models.InnfyFormSubmissionByMe)">
+            <summary>
+            Added by jay on 18-2-2016
+            I-Witness specific
+            Get form submission by lat long and zoom
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormAnswersController.AcceptEmergencyResponseForm(System.Int64)">
+            <summary>
+            No more in use. I-Witness Specific AcceptEmergencyResponseForm
+            </summary>
+            <param name="id">Submission Id</param>
+            <returns>True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.GetForms(System.Int32)">
+            <summary>
+            List of forms subscriberId wise
+            </summary>
+            <param name="subscriberId">subscriber Id. Ex. 1</param>
+            <returns>List containing Id, Name, Description, LanguageName, CreatedOn, UpdatedOn, OrderBy, TotalSubmission, WebFormUID, IsActive, IsDashboard</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.getDate">
+            <summary>
+            Get Database date
+            </summary>
+            <returns>Date</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.getFormList(FormziApi.Models.SubscriberFormsDateModel)">
+            <summary>
+            i-witness - List of forms
+            It includes latest server date which need to pass on next api call
+            </summary>
+            <param name="SubscriberId"></param>
+            <param name="DateTime"></param>
+            <param name="AuthKey"></param>
+            <returns>List containing Id, Name, Description, LanguageName, CreatedOn, UpdatedOn, OrderBy, TotalSubmission, WebFormUID, IsActive, IsDashboard, Date</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.GetFormsBySubscriberId(System.Int32)">
+            <summary>
+            List of forms by subscriber id which includes form questions list
+            Currently implemented according to i-witness
+            </summary>
+            <param name="SubscriberId">subscriber id. Ex. 1</param>
+            <returns>Form Model or null</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.DeleteForm(System.Int64,System.Int64)">
+            <summary>
+            Delete form by id and employee id.
+            </summary>
+            <param name="id">form id</param>
+            <param name="employeeId">employee id</param>
+            <returns>List of forms</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.SaveForm(System.Int32,System.Object)">
+            <summary>
+            Save form
+            </summary>
+            <param name="subscriberId">subscriber id.</param>
+            <param name="dataModel">Form and FormQuestions model</param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.PostForm(FormziApi.Controllers.TempFormModel)">
+            <summary>
+            Save Form and its questions
+            </summary>
+            <param name="form">Form and FormQuestion model</param>
+            <returns>returns form id</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.UpdateFromOrderBy(System.Int32,System.Int32)">
+            <summary>
+            Update form order
+            </summary>
+            <param name="FormId">Form Id</param>
+            <param name="Orderby">Orderby</param>
+            <returns>returns form id</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.UpdateFromActive(System.Int32,System.Boolean)">
+            <summary>
+            Update form active
+            </summary>
+            <param name="FormId">Form Id</param>
+            <param name="Active">Active</param>
+            <returns>returns form id</returns>
+        </member>
+      <member name="M:FormziApi.Controllers.FormsController.UpdatePrivateForm(System.Int32,System.Boolean)">
+        <summary>
+          Update Private form 
+        </summary>
+        <param name="FormId">Form Id</param>
+        <param name="IsPrivateForm">IsPrivateForm</param>
+        <returns>returns form id</returns>
+      </member>
+        <member name="M:FormziApi.Controllers.FormsController.GetFormByFormId(System.Int64)">
+            <summary>
+            Form details by form id
+            </summary>
+            <param name="id">form id</param>
+            <returns>Form details</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.GetFormByFormUID(System.String)">
+            <summary>
+            Form details by Unique Id
+            </summary>
+            <param name="id">Unique Id</param>
+            <returns>Form details</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.SyncEmployeeForms(FormziApi.Models.EmployeeFormsDateModel)">
+            <summary>
+            Sync forms by datetime
+            </summary>
+            <param name="dateModel">EmployeeId and datetime</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.FormActiveUpdate(System.Int32,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Active/Deactive form
+            </summary>
+            <param name="subscriberId"></param>
+            <param name="formId"></param>
+            <param name="loginUserId"></param>
+            <param name="isActive"></param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.FormLanguages(System.Int32,System.String)">
+            <summary>
+            Form languages publish
+            </summary>
+            <param name="formId">Form Id</param>
+            <param name="modelJson">Language Model</param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.ActiveForm(System.Int64,System.Boolean,System.Int32)">
+            <summary>
+            Active Form
+            </summary>
+            <param name="id">Id</param>
+            <param name="isActive">True/False</param>
+            <param name="employeeId">Employee Id</param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.ActiveFormLanguage(System.Int64,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Active form language
+            </summary>
+            <param name="formId"></param>
+            <param name="versionId"></param>
+            <param name="languageId"></param>
+            <param name="isActive"></param>
+            <returns>Return True/False</returns>
+        </member>
+        <member name="M:FormziApi.Controllers.FormsController.GetFormVersionsListByFormId(System.Int64)">
+            <summary>
+            Get Form VersionsList By FormId    
+            </summary>
+            <param name="FormId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Condition">
+            <summary>
+            Condition - acceptable values are "and" and "or".
+            </summary>
+            <value>
+            The condition.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Field">
+            <summary>
+            The name of the field that the filter applies to.
+            </summary>
+            <value>
+            The field.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Input">
+            <summary>
+            Gets or sets the input.
+            </summary>
+            <value>
+            The input.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Operator">
+            <summary>
+            Gets or sets the operator.
+            </summary>
+            <value>
+            The operator.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Rules">
+            <summary>
+            Gets or sets nested filter rules.
+            </summary>
+            <value>
+            The rules.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Type">
+            <summary>
+            Gets or sets the type. Supported values are "integer", "double", "string", "date", "datetime", and "boolean".
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:FormziApi.Models.FilterRule.Value">
+            <summary>
+            Gets or sets the value of the filter.
+            </summary>
+            <value>
+            The value.
+            </value>
+        </member>
+        <member name="M:FormziApi.Services.AppUserInfoService.AddAppUserInfo(FormziApi.Models.AppUserInfoModel)">
+            <summary>
+            It will add new mobile user
+            Innfy - 'i-Witness' - Ticit Specific
+            
+            </summary>
+            <param name="appUserModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Services.FormAnswerService.SendEmail(System.String,System.String,System.String)">
+            <summary>
+            Email for new submission 
+            Innfy specific 
+            </summary>
+            <param name="ToEmailAddress"></param>
+            <param name="MailBody"></param>
+            <param name="Subject"></param>
+        </member>
+        <member name="M:FormziApi.Services.SubmissionService.SubmissionAction(System.Int64,System.Int64,System.Int64,System.Int32)">
+            <summary>
+            Method call when i-witness mobile app user will Resolved, Assign, Reject issue
+            </summary>
+            <param name="submissionId"></param>
+            <param name="currentEmpId">UserId</param>
+            <param name="assignToEmpId"></param>
+            <param name="actionId">Resolved, Reject, Assign Id</param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Services.SubmissionService.UpdateSubmissionAction(System.Int64,System.Int32)">
+            <summary>
+            Submission entry updated here
+            Possible updates, Resolved, Reject, Assign issue
+            </summary>
+            <param name="submissionId"></param>
+            <param name="actionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Services.SubmissionService.AddEmpSubmissionMap(System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            Add Employee-Submission Mapping
+            </summary>
+            <param name="submissionId"></param>
+            <param name="employeeId"></param>
+            <param name="assigned"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Services.SubmissionService.UpdateEmpSubmissionMap(System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            Update Employee-Submission Mapping
+            </summary>
+            <param name="submissionId"></param>
+            <param name="employeeId"></param>
+            <param name="assigned"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Services.SubmissionService.RemoveEmpSubmissionMap(System.Int64)">
+            <summary>
+            Remove Employee-Submission Mapping
+            </summary>
+            <param name="submissionId"></param>
+            <param name="employeeId"></param>
+            <param name="assigned"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FormziApi.Services.SubmissionService.AMC_PostToCCRS(System.Int32,System.Int64)">
+            <summary>
+            AMC Post to ccrs system
+            </summary>
+            <param name="formId"></param>
+            <param name="formSubmissionId"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

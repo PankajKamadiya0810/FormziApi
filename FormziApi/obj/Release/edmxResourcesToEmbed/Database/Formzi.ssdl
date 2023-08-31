@@ -1,0 +1,1720 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Creos_StagingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Addresses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Address2" Type="nvarchar" MaxLength="100" />
+    <Property Name="City" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ZipPostalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="FaxNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="StateProvinceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppLogins">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsWebEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsMobileEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="IsReset" Type="bit" />
+    <Property Name="ResetLink" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="AppSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsReadonly" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AppUserInfo">
+    <Key>
+      <PropertyRef Name="AppInfoID" />
+    </Key>
+    <Property Name="AppInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="PhoneNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+    <Property Name="OTP" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsOTPVerified" Type="bit" Nullable="false" />
+    <Property Name="EmailVerificationCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UniqueNumber" Type="nvarchar" MaxLength="50" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="ReceiveReminders" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TwoLetterIsoCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="ThreeLetterIsoCode" Type="nvarchar" MaxLength="3" />
+    <Property Name="NumericIsoCode" Type="int" Nullable="false" />
+    <Property Name="Published" Type="bit" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CountryFlag" Type="nvarchar" MaxLength="20" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Currency">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CurrencyCode" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="Rate" Type="decimal" Precision="18" Scale="4" Nullable="false" />
+    <Property Name="Published" Type="bit" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dashboard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="FormVersionId" Type="int" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="Page" Type="nvarchar(max)" />
+    <Property Name="DashboardObjs" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Path" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JobId" Type="int" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeForms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeLocations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppLoginId" Type="bigint" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PayrollId" Type="nvarchar" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="10" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="ProfilePicture" Type="nvarchar(max)" />
+    <Property Name="BirthDate" Type="datetime" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="15" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="AppLoginId" Type="bigint" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="SystemRoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormAnswers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="int" Nullable="false" />
+    <Property Name="ElementType" Type="int" Nullable="false" />
+    <Property Name="FormQuestionId" Type="bigint" Nullable="false" />
+    <Property Name="FormSubmissionId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormQuestions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question" Type="nvarchar(max)" />
+    <Property Name="JSONQuestion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="FormToolsId" Type="int" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="FormVersionId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="ParentQuestionId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Forms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Image" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="OrderBy" Type="int" />
+    <Property Name="WebFormUID" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="WorkFlowEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsPrivateForm" Type="bit" />
+  </EntityType>
+  <EntityType Name="FormSectionRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormSectionId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormSections">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="FormQueId" Type="bigint" Nullable="false" />
+    <Property Name="VersionId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormSubmissions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppInfoId" Type="int" />
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LatLong" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Latitude" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="Longitude" Type="decimal" Precision="20" Scale="17" />
+    <Property Name="SubmittedBy" Type="bigint" Nullable="false" />
+    <Property Name="SubmittedOn" Type="datetime" Nullable="false" />
+    <Property Name="ApprovedBy" Type="bigint" />
+    <Property Name="ApprovedOn" Type="datetime" />
+    <Property Name="IsApproved" Type="int" />
+    <Property Name="IsProcessing" Type="bit" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="FolderName" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="IsSync" Type="bit" Nullable="false" />
+    <Property Name="FormVersionId" Type="int" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="Action" Type="int" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="IsCompleted" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FormTools">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+    <Property Name="ElementImage" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="FormVersions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="Version" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Signature" Type="binary" MaxLength="500" Nullable="false" />
+    <Property Name="Start" Type="datetime" Nullable="false" />
+    <Property Name="Finish" Type="datetime" Nullable="false" />
+    <Property Name="CompletedBy" Type="int" Nullable="false" />
+    <Property Name="CompletedOn" Type="datetime" Nullable="false" />
+    <Property Name="ApprovedBy" Type="int" />
+    <Property Name="ApprovedOn" Type="datetime" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+    <Property Name="LocationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="LanguageCulture" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="UniqueSeoCode" Type="nvarchar" MaxLength="2" />
+    <Property Name="FlagImageFileName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Rtl" Type="bit" Nullable="false" />
+    <Property Name="Published" Type="bit" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LocalStringResources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsHtml" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="IsMobileEnabled" Type="bit" Nullable="false" />
+    <Property Name="IsWebEnabled" Type="bit" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="ResourceType" Type="int" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+    <Property Name="AddressId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoginLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IpAddress" Type="nvarchar" MaxLength="32" />
+    <Property Name="DeviceId" Type="nvarchar" MaxLength="50" />
+    <Property Name="LoggedOn" Type="datetime" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="AppLoginId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppInfoId" Type="int" Nullable="false" />
+    <Property Name="TypeOfNotification" Type="int" Nullable="false" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="IsUnread" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Operations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OperationSettings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OperationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PieChartQueryResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="Total" Type="int" />
+  </EntityType>
+  <EntityType Name="PostLocation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubmissionId" Type="bigint" Nullable="false" />
+    <Property Name="route" Type="nvarchar(max)" />
+    <Property Name="administrative_area_level_1" Type="nvarchar(max)" />
+    <Property Name="administrative_area_level_2" Type="nvarchar(max)" />
+    <Property Name="administrative_area_level_3" Type="nvarchar(max)" />
+    <Property Name="colloquial_area" Type="nvarchar(max)" />
+    <Property Name="locality" Type="nvarchar(max)" />
+    <Property Name="sublocality" Type="nvarchar(max)" />
+    <Property Name="neighborhood" Type="nvarchar(max)" />
+    <Property Name="postal_code" Type="nvarchar(max)" />
+    <Property Name="country" Type="nvarchar(max)" />
+    <Property Name="shortName" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ClientId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProjectForms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProjectId" Type="int" Nullable="false" />
+    <Property Name="FormId" Type="bigint" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CreatedBy" Type="bigint" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="bigint" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QueryTableResult">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="Appreciation" Type="int" />
+    <Property Name="Issue" Type="int" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="int" Nullable="false" />
+    <Property Name="SubscriberId" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StateProvinces">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Abbreviation" Type="nvarchar" MaxLength="100" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubmissionEmployeeMap">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubmissionId" Type="bigint" Nullable="false" />
+    <Property Name="EmployeeId" Type="bigint" Nullable="false" />
+    <Property Name="Assigned" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SubscriberLanguages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubcriberId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="IsPublished" Type="bit" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subscribers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Website" Type="nvarchar" MaxLength="100" />
+    <Property Name="CompanyName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SubDomain" Type="nvarchar" MaxLength="150" />
+    <Property Name="PreferredDomain" Type="nvarchar" MaxLength="150" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="CompanyLogo" Type="nvarchar(max)" />
+    <Property Name="EmailVerificationCode" Type="nvarchar" MaxLength="32" Nullable="false" />
+    <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedOn" Type="datetime" Nullable="false" />
+    <Property Name="AddressId" Type="bigint" Nullable="false" />
+    <Property Name="SubscriptionPlanId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubscriptionPlans">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberOfUsers" Type="int" Nullable="false" />
+    <Property Name="NumberOfForms" Type="int" Nullable="false" />
+    <Property Name="NumberOfEntries" Type="int" Nullable="false" />
+    <Property Name="NumberOfReports" Type="int" Nullable="false" />
+    <Property Name="StorageLimit" Type="int" Nullable="false" />
+    <Property Name="SubscriptionFee" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="DurationInMonths" Type="int" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__StateProv__Count__6F1576F7">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="StateProvinces" Type="Self.StateProvinces" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="StateProvinces">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_Countries">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Addresses_StateProvinces">
+    <End Role="StateProvinces" Type="Self.StateProvinces" Multiplicity="1" />
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StateProvinces">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Addresses">
+        <PropertyRef Name="StateProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppLogins_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="AppLogins" Type="Self.AppLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppLogins">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AppSettings_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="AppSettings" Type="Self.AppSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AppSettings">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Countries_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="Countries" Type="Self.Countries" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Countries">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Employees1">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersions" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="FormVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Dashboard_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="Dashboard" Type="Self.Dashboard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Dashboard">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_Jobs">
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="1" />
+    <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jobs">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="JobId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Clients">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeForms_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="EmployeeForms" Type="Self.EmployeeForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeForms">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLocations_Employee">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="EmployeeLocations" Type="Self.EmployeeLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeLocations">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeLocations_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+    <End Role="EmployeeLocations" Type="Self.EmployeeLocations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeLocations">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRoles_AppLogins">
+    <End Role="AppLogins" Type="Self.AppLogins" Multiplicity="1" />
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppLogins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeRoles">
+        <PropertyRef Name="AppLoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EmployeeRoles_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="EmployeeRoles" Type="Self.EmployeeRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EmployeeRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_AppLogins">
+    <End Role="AppLogins" Type="Self.AppLogins" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppLogins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="AppLoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormAnswers_FormQuestions">
+    <End Role="FormQuestions" Type="Self.FormQuestions" Multiplicity="1" />
+    <End Role="FormAnswers" Type="Self.FormAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormAnswers">
+        <PropertyRef Name="FormQuestionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormAnswers_FormSubmissions">
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="1" />
+    <End Role="FormAnswers" Type="Self.FormAnswers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmissions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormAnswers">
+        <PropertyRef Name="FormSubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormQuestions_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="FormQuestions" Type="Self.FormQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormQuestions">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormQuestions_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersions" Multiplicity="1" />
+    <End Role="FormQuestions" Type="Self.FormQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormQuestions">
+        <PropertyRef Name="FormVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormQuestions_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="FormQuestions" Type="Self.FormQuestions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormQuestions">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forms_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Forms" Type="Self.Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forms">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forms_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="Forms" Type="Self.Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forms">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Forms_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="Forms" Type="Self.Forms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Forms">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSectionRole_FormSections">
+    <End Role="FormSections" Type="Self.FormSections" Multiplicity="1" />
+    <End Role="FormSectionRole" Type="Self.FormSectionRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSections">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSectionRole">
+        <PropertyRef Name="FormSectionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSectionRole_Roles">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="FormSectionRole" Type="Self.FormSectionRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSectionRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSections_FormQuestions">
+    <End Role="FormQuestions" Type="Self.FormQuestions" Multiplicity="1" />
+    <End Role="FormSections" Type="Self.FormSections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormQuestions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSections">
+        <PropertyRef Name="FormQueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSections_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="FormSections" Type="Self.FormSections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSections">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSections_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersions" Multiplicity="1" />
+    <End Role="FormSections" Type="Self.FormSections" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSections">
+        <PropertyRef Name="VersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Employess">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_FormVersions">
+    <End Role="FormVersions" Type="Self.FormVersions" Multiplicity="0..1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormVersions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="FormVersionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="0..1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormSubmissions_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormSubmissions">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FormVersions_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="FormVersions" Type="Self.FormVersions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="FormVersions">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobs_Locations">
+    <End Role="Locations" Type="Self.Locations" Multiplicity="1" />
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="LocationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocaleStringResources_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="LocalStringResources" Type="Self.LocalStringResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocalStringResources">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocaleStringResources_Operations">
+    <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+    <End Role="LocalStringResources" Type="Self.LocalStringResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocalStringResources">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LocalStringResources_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="LocalStringResources" Type="Self.LocalStringResources" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LocalStringResources">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Addresses">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+    <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Clients">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Locations_Operations">
+    <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+    <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Locations">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LoginLogs_AppLogins">
+    <End Role="AppLogins" Type="Self.AppLogins" Multiplicity="1" />
+    <End Role="LoginLogs" Type="Self.LoginLogs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppLogins">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LoginLogs">
+        <PropertyRef Name="AppLoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_AppUserInfo">
+    <End Role="AppUserInfo" Type="Self.AppUserInfo" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AppUserInfo">
+        <PropertyRef Name="AppInfoID" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="AppInfoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Notification_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="Notification" Type="Self.Notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Notification">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Operations_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="Operations" Type="Self.Operations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Operations">
+        <PropertyRef Name="SubscriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OperationSettings_Operation">
+    <End Role="Operations" Type="Self.Operations" Multiplicity="1" />
+    <End Role="OperationSettings" Type="Self.OperationSettings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OperationSettings">
+        <PropertyRef Name="OperationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PostLocation_FormSubmissions">
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="1" />
+    <End Role="PostLocation" Type="Self.PostLocation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmissions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PostLocation">
+        <PropertyRef Name="SubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_Clients">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
+    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ClientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectForms_Forms">
+    <End Role="Forms" Type="Self.Forms" Multiplicity="1" />
+    <End Role="ProjectForms" Type="Self.ProjectForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectForms">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProjectForms_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="ProjectForms" Type="Self.ProjectForms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProjectForms">
+        <PropertyRef Name="ProjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmissionEmployeeMap_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+    <End Role="SubmissionEmployeeMap" Type="Self.SubmissionEmployeeMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubmissionEmployeeMap">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubmissionEmployeeMap_FormSubmissions">
+    <End Role="FormSubmissions" Type="Self.FormSubmissions" Multiplicity="1" />
+    <End Role="SubmissionEmployeeMap" Type="Self.SubmissionEmployeeMap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormSubmissions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubmissionEmployeeMap">
+        <PropertyRef Name="SubmissionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubscriberLanguages_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="SubscriberLanguages" Type="Self.SubscriberLanguages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriberLanguages">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubscriberLanguages_Subscribers">
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="1" />
+    <End Role="SubscriberLanguages" Type="Self.SubscriberLanguages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscribers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SubscriberLanguages">
+        <PropertyRef Name="SubcriberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscribers_Addresses">
+    <End Role="Addresses" Type="Self.Addresses" Multiplicity="1" />
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Addresses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Subscribers_SubscriptionPlans">
+    <End Role="SubscriptionPlans" Type="Self.SubscriptionPlans" Multiplicity="1" />
+    <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubscriptionPlans">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Subscribers">
+        <PropertyRef Name="SubscriptionPlanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GenerateFormTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FormID" Type="int" Mode="In" />
+    <Parameter Name="FormVersionID" Type="int" Mode="In" />
+    <Parameter Name="QID" Type="int" Mode="In" />
+    <Parameter Name="strParam" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GenerateFormTableforChart" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FormID" Type="int" Mode="In" />
+    <Parameter Name="FormVersionID" Type="int" Mode="In" />
+    <Parameter Name="FormQuestionIDX" Type="int" Mode="In" />
+    <Parameter Name="FormQuestionIDY" Type="int" Mode="In" />
+    <Parameter Name="strParam" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GetChartDataByFormID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fromId" Type="int" Mode="In" />
+    <Parameter Name="versionId" Type="int" Mode="In" />
+    <Parameter Name="xAxis" Type="int" Mode="In" />
+    <Parameter Name="yAxis" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetFormSubmissionByMe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DeviceId" Type="nvarchar" Mode="In" />
+    <Parameter Name="SubscriberId" Type="int" Mode="In" />
+    <Parameter Name="IsApproved" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetSubmissionByLatLngDis" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orig_lat" Type="decimal" Mode="In" />
+    <Parameter Name="orig_long" Type="decimal" Mode="In" />
+    <Parameter Name="bounding_distance" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="parseJSON" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JSON" Type="nvarchar(max)" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="element_id" Type="int" Nullable="false" />
+          <Property Name="sequenceNo" Type="int" />
+          <Property Name="parent_ID" Type="int" />
+          <Property Name="Object_ID" Type="int" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="2000" />
+          <Property Name="StringValue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ValueType" Type="varchar" MaxLength="10" Nullable="false" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="udf_GetEmployeeDetailby_Appinfo_Employee_Id" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Name" Type="varchar(max)" />
+          <Property Name="Email" Type="varchar(max)" />
+          <Property Name="PhoneNo" Type="varchar(max)" />
+          <Property Name="FormId" Type="int" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="udf_GetImagePathByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="varchar(max)">
+    <Parameter Name="SubscribersId" Type="varchar" Mode="In" />
+    <Parameter Name="FolderName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ElementType" Type="int" Mode="In" />
+    <Parameter Name="FieldName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Path" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_GetFormSubmissionDetailByFormID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fromId" Type="int" Mode="In" />
+    <Parameter Name="versionId" Type="int" Mode="In" />
+    <Parameter Name="IsHtml" Type="int" Mode="In" />
+    <Parameter Name="Page" Type="int" Mode="In" />
+    <Parameter Name="RecsPerPage" Type="int" Mode="In" />
+    <Parameter Name="Path" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="RaiseError" Type="bit" Mode="In" />
+    <Parameter Name="AppLoginId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Creos_StagingModelStoreContainer">
+    <EntitySet Name="Addresses" EntityType="Self.Addresses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppLogins" EntityType="Self.AppLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppUserInfo" EntityType="Self.AppUserInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dashboard" EntityType="Self.Dashboard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeForms" EntityType="Self.EmployeeForms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeLocations" EntityType="Self.EmployeeLocations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeRoles" EntityType="Self.EmployeeRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormAnswers" EntityType="Self.FormAnswers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormQuestions" EntityType="Self.FormQuestions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Forms" EntityType="Self.Forms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormSectionRole" EntityType="Self.FormSectionRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormSections" EntityType="Self.FormSections" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormSubmissions" EntityType="Self.FormSubmissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormTools" EntityType="Self.FormTools" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormVersions" EntityType="Self.FormVersions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LocalStringResources" EntityType="Self.LocalStringResources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Locations" EntityType="Self.Locations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoginLogs" EntityType="Self.LoginLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Operations" EntityType="Self.Operations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OperationSettings" EntityType="Self.OperationSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PieChartQueryResult" EntityType="Self.PieChartQueryResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostLocation" EntityType="Self.PostLocation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProjectForms" EntityType="Self.ProjectForms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QueryTableResult" EntityType="Self.QueryTableResult" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StateProvinces" EntityType="Self.StateProvinces" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubmissionEmployeeMap" EntityType="Self.SubmissionEmployeeMap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriberLanguages" EntityType="Self.SubscriberLanguages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriptionPlans" EntityType="Self.SubscriptionPlans" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__StateProv__Count__6F1576F7" Association="Self.FK__StateProv__Count__6F1576F7">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_Countries" Association="Self.FK_Addresses_Countries">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Addresses_StateProvinces" Association="Self.FK_Addresses_StateProvinces">
+      <End Role="StateProvinces" EntitySet="StateProvinces" />
+      <End Role="Addresses" EntitySet="Addresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppLogins_Subscribers" Association="Self.FK_AppLogins_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="AppLogins" EntitySet="AppLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AppSettings_Subscribers" Association="Self.FK_AppSettings_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="AppSettings" EntitySet="AppSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Countries_Subscribers" Association="Self.FK_Countries_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Countries" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Employees" Association="Self.FK_Dashboard_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Employees1" Association="Self.FK_Dashboard_Employees1">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Forms" Association="Self.FK_Dashboard_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_FormVersions" Association="Self.FK_Dashboard_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Dashboard_Subscribers" Association="Self.FK_Dashboard_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Dashboard" EntitySet="Dashboard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_Employees" Association="Self.FK_Documents_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_Jobs" Association="Self.FK_Documents_Jobs">
+      <End Role="Jobs" EntitySet="Jobs" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Clients" Association="Self.FK_EmployeeForms_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Employees" Association="Self.FK_EmployeeForms_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Forms" Association="Self.FK_EmployeeForms_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeForms_Project" Association="Self.FK_EmployeeForms_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="EmployeeForms" EntitySet="EmployeeForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLocations_Employee" Association="Self.FK_EmployeeLocations_Employee">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EmployeeLocations" EntitySet="EmployeeLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeLocations_Locations" Association="Self.FK_EmployeeLocations_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="EmployeeLocations" EntitySet="EmployeeLocations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRoles_AppLogins" Association="Self.FK_EmployeeRoles_AppLogins">
+      <End Role="AppLogins" EntitySet="AppLogins" />
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EmployeeRoles_Roles" Association="Self.FK_EmployeeRoles_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="EmployeeRoles" EntitySet="EmployeeRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_AppLogins" Association="Self.FK_Employees_AppLogins">
+      <End Role="AppLogins" EntitySet="AppLogins" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Subscribers" Association="Self.FK_Employees_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormAnswers_FormQuestions" Association="Self.FK_FormAnswers_FormQuestions">
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+      <End Role="FormAnswers" EntitySet="FormAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormAnswers_FormSubmissions" Association="Self.FK_FormAnswers_FormSubmissions">
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+      <End Role="FormAnswers" EntitySet="FormAnswers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormQuestions_Forms" Association="Self.FK_FormQuestions_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormQuestions_FormVersions" Association="Self.FK_FormQuestions_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormQuestions_Languages" Association="Self.FK_FormQuestions_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forms_Employees" Association="Self.FK_Forms_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Forms" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forms_Languages" Association="Self.FK_Forms_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="Forms" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Forms_Subscribers" Association="Self.FK_Forms_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Forms" EntitySet="Forms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSectionRole_FormSections" Association="Self.FK_FormSectionRole_FormSections">
+      <End Role="FormSections" EntitySet="FormSections" />
+      <End Role="FormSectionRole" EntitySet="FormSectionRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSectionRole_Roles" Association="Self.FK_FormSectionRole_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="FormSectionRole" EntitySet="FormSectionRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSections_FormQuestions" Association="Self.FK_FormSections_FormQuestions">
+      <End Role="FormQuestions" EntitySet="FormQuestions" />
+      <End Role="FormSections" EntitySet="FormSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSections_Forms" Association="Self.FK_FormSections_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="FormSections" EntitySet="FormSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSections_FormVersions" Association="Self.FK_FormSections_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="FormSections" EntitySet="FormSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Employess" Association="Self.FK_FormSubmissions_Employess">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Forms" Association="Self.FK_FormSubmissions_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_FormVersions" Association="Self.FK_FormSubmissions_FormVersions">
+      <End Role="FormVersions" EntitySet="FormVersions" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Languages" Association="Self.FK_FormSubmissions_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormSubmissions_Subscribers" Association="Self.FK_FormSubmissions_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FormVersions_Forms" Association="Self.FK_FormVersions_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="FormVersions" EntitySet="FormVersions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Employees" Association="Self.FK_Jobs_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Forms" Association="Self.FK_Jobs_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobs_Locations" Association="Self.FK_Jobs_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocaleStringResources_Languages" Association="Self.FK_LocaleStringResources_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="LocalStringResources" EntitySet="LocalStringResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocaleStringResources_Operations" Association="Self.FK_LocaleStringResources_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="LocalStringResources" EntitySet="LocalStringResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LocalStringResources_Subscribers" Association="Self.FK_LocalStringResources_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="LocalStringResources" EntitySet="LocalStringResources" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Addresses" Association="Self.FK_Locations_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Clients" Association="Self.FK_Locations_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Locations_Operations" Association="Self.FK_Locations_Operations">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="Locations" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginLogs_AppLogins" Association="Self.FK_LoginLogs_AppLogins">
+      <End Role="AppLogins" EntitySet="AppLogins" />
+      <End Role="LoginLogs" EntitySet="LoginLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_AppUserInfo" Association="Self.FK_Notification_AppUserInfo">
+      <End Role="AppUserInfo" EntitySet="AppUserInfo" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Notification_Subscribers" Association="Self.FK_Notification_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Notification" EntitySet="Notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Operations_Subscribers" Association="Self.FK_Operations_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="Operations" EntitySet="Operations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OperationSettings_Operation" Association="Self.FK_OperationSettings_Operation">
+      <End Role="Operations" EntitySet="Operations" />
+      <End Role="OperationSettings" EntitySet="OperationSettings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PostLocation_FormSubmissions" Association="Self.FK_PostLocation_FormSubmissions">
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+      <End Role="PostLocation" EntitySet="PostLocation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Clients" Association="Self.FK_Project_Clients">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectForms_Forms" Association="Self.FK_ProjectForms_Forms">
+      <End Role="Forms" EntitySet="Forms" />
+      <End Role="ProjectForms" EntitySet="ProjectForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProjectForms_Project" Association="Self.FK_ProjectForms_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="ProjectForms" EntitySet="ProjectForms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmissionEmployeeMap_Employees" Association="Self.FK_SubmissionEmployeeMap_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="SubmissionEmployeeMap" EntitySet="SubmissionEmployeeMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubmissionEmployeeMap_FormSubmissions" Association="Self.FK_SubmissionEmployeeMap_FormSubmissions">
+      <End Role="FormSubmissions" EntitySet="FormSubmissions" />
+      <End Role="SubmissionEmployeeMap" EntitySet="SubmissionEmployeeMap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubscriberLanguages_Languages" Association="Self.FK_SubscriberLanguages_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="SubscriberLanguages" EntitySet="SubscriberLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubscriberLanguages_Subscribers" Association="Self.FK_SubscriberLanguages_Subscribers">
+      <End Role="Subscribers" EntitySet="Subscribers" />
+      <End Role="SubscriberLanguages" EntitySet="SubscriberLanguages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_Addresses" Association="Self.FK_Subscribers_Addresses">
+      <End Role="Addresses" EntitySet="Addresses" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Subscribers_SubscriptionPlans" Association="Self.FK_Subscribers_SubscriptionPlans">
+      <End Role="SubscriptionPlans" EntitySet="SubscriptionPlans" />
+      <End Role="Subscribers" EntitySet="Subscribers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

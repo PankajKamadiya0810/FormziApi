@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Creos_StagingModelStoreContainer" CdmEntityContainer="FormziEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Address">
+        <MappingFragment StoreEntitySet="Addresses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipPostalCode" ColumnName="ZipPostalCode" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="StateProvinceId" ColumnName="StateProvinceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppLogins">
+      <EntityTypeMapping TypeName="Creos_StagingModel.AppLogin">
+        <MappingFragment StoreEntitySet="AppLogins">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsWebEnabled" ColumnName="IsWebEnabled" />
+          <ScalarProperty Name="IsMobileEnabled" ColumnName="IsMobileEnabled" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="IsReset" ColumnName="IsReset" />
+          <ScalarProperty Name="ResetLink" ColumnName="ResetLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppSettings">
+      <EntityTypeMapping TypeName="Creos_StagingModel.AppSetting">
+        <MappingFragment StoreEntitySet="AppSettings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsReadonly" ColumnName="IsReadonly" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AppUserInfoes">
+      <EntityTypeMapping TypeName="Creos_StagingModel.AppUserInfo">
+        <MappingFragment StoreEntitySet="AppUserInfo">
+          <ScalarProperty Name="AppInfoID" ColumnName="AppInfoID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="OTP" ColumnName="OTP" />
+          <ScalarProperty Name="IsOTPVerified" ColumnName="IsOTPVerified" />
+          <ScalarProperty Name="EmailVerificationCode" ColumnName="EmailVerificationCode" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UniqueNumber" ColumnName="UniqueNumber" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="ReceiveReminders" ColumnName="ReceiveReminders" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Country">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TwoLetterIsoCode" ColumnName="TwoLetterIsoCode" />
+          <ScalarProperty Name="ThreeLetterIsoCode" ColumnName="ThreeLetterIsoCode" />
+          <ScalarProperty Name="NumericIsoCode" ColumnName="NumericIsoCode" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="CountryFlag" ColumnName="CountryFlag" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Currencies">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Currency">
+        <MappingFragment StoreEntitySet="Currency">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dashboards">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Dashboard">
+        <MappingFragment StoreEntitySet="Dashboard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FormVersionId" ColumnName="FormVersionId" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="Page" ColumnName="Page" />
+          <ScalarProperty Name="DashboardObjs" ColumnName="DashboardObjs" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="JobId" ColumnName="JobId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeForms">
+      <EntityTypeMapping TypeName="Creos_StagingModel.EmployeeForm">
+        <MappingFragment StoreEntitySet="EmployeeForms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeLocations">
+      <EntityTypeMapping TypeName="Creos_StagingModel.EmployeeLocation">
+        <MappingFragment StoreEntitySet="EmployeeLocations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeeRoles">
+      <EntityTypeMapping TypeName="Creos_StagingModel.EmployeeRole">
+        <MappingFragment StoreEntitySet="EmployeeRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppLoginId" ColumnName="AppLoginId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Employee">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PayrollId" ColumnName="PayrollId" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="ProfilePicture" ColumnName="ProfilePicture" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="AppLoginId" ColumnName="AppLoginId" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="SystemRoleId" ColumnName="SystemRoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormAnswers">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormAnswer">
+        <MappingFragment StoreEntitySet="FormAnswers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="ElementType" ColumnName="ElementType" />
+          <ScalarProperty Name="FormQuestionId" ColumnName="FormQuestionId" />
+          <ScalarProperty Name="FormSubmissionId" ColumnName="FormSubmissionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormQuestions">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormQuestion">
+        <MappingFragment StoreEntitySet="FormQuestions">
+          <ScalarProperty Name="ParentQuestionId" ColumnName="ParentQuestionId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="JSONQuestion" ColumnName="JSONQuestion" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="FormToolsId" ColumnName="FormToolsId" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FormVersionId" ColumnName="FormVersionId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormSectionRoles">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormSectionRole">
+        <MappingFragment StoreEntitySet="FormSectionRole">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormSectionId" ColumnName="FormSectionId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormSections">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormSection">
+        <MappingFragment StoreEntitySet="FormSections">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FormQueId" ColumnName="FormQueId" />
+          <ScalarProperty Name="VersionId" ColumnName="VersionId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormSubmissions">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormSubmission">
+        <MappingFragment StoreEntitySet="FormSubmissions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppInfoId" ColumnName="AppInfoId" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="LatLong" ColumnName="LatLong" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+          <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="IsProcessing" ColumnName="IsProcessing" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="IsSync" ColumnName="IsSync" />
+          <ScalarProperty Name="FormVersionId" ColumnName="FormVersionId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormTools">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormTool">
+        <MappingFragment StoreEntitySet="FormTools">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="ElementImage" ColumnName="ElementImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormVersions">
+      <EntityTypeMapping TypeName="Creos_StagingModel.FormVersion">
+        <MappingFragment StoreEntitySet="FormVersions">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jobs">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Job">
+        <MappingFragment StoreEntitySet="Jobs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Signature" ColumnName="Signature" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="Finish" ColumnName="Finish" />
+          <ScalarProperty Name="CompletedBy" ColumnName="CompletedBy" />
+          <ScalarProperty Name="CompletedOn" ColumnName="CompletedOn" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedOn" ColumnName="ApprovedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="LocationId" ColumnName="LocationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Languages">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Language">
+        <MappingFragment StoreEntitySet="Languages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="LanguageCulture" ColumnName="LanguageCulture" />
+          <ScalarProperty Name="UniqueSeoCode" ColumnName="UniqueSeoCode" />
+          <ScalarProperty Name="FlagImageFileName" ColumnName="FlagImageFileName" />
+          <ScalarProperty Name="Rtl" ColumnName="Rtl" />
+          <ScalarProperty Name="Published" ColumnName="Published" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocalStringResources">
+      <EntityTypeMapping TypeName="Creos_StagingModel.LocalStringResource">
+        <MappingFragment StoreEntitySet="LocalStringResources">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="IsHtml" ColumnName="IsHtml" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="IsMobileEnabled" ColumnName="IsMobileEnabled" />
+          <ScalarProperty Name="IsWebEnabled" ColumnName="IsWebEnabled" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoginLogs">
+      <EntityTypeMapping TypeName="Creos_StagingModel.LoginLog">
+        <MappingFragment StoreEntitySet="LoginLogs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="LoggedOn" ColumnName="LoggedOn" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="AppLoginId" ColumnName="AppLoginId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Notification">
+        <MappingFragment StoreEntitySet="Notification">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppInfoId" ColumnName="AppInfoId" />
+          <ScalarProperty Name="TypeOfNotification" ColumnName="TypeOfNotification" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="IsUnread" ColumnName="IsUnread" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Operations">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Operation">
+        <MappingFragment StoreEntitySet="Operations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OperationSettings">
+      <EntityTypeMapping TypeName="Creos_StagingModel.OperationSetting">
+        <MappingFragment StoreEntitySet="OperationSettings">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="OperationId" ColumnName="OperationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PieChartQueryResults">
+      <EntityTypeMapping TypeName="Creos_StagingModel.PieChartQueryResult">
+        <MappingFragment StoreEntitySet="PieChartQueryResult">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostLocations">
+      <EntityTypeMapping TypeName="Creos_StagingModel.PostLocation">
+        <MappingFragment StoreEntitySet="PostLocation">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubmissionId" ColumnName="SubmissionId" />
+          <ScalarProperty Name="route" ColumnName="route" />
+          <ScalarProperty Name="administrative_area_level_1" ColumnName="administrative_area_level_1" />
+          <ScalarProperty Name="administrative_area_level_2" ColumnName="administrative_area_level_2" />
+          <ScalarProperty Name="administrative_area_level_3" ColumnName="administrative_area_level_3" />
+          <ScalarProperty Name="colloquial_area" ColumnName="colloquial_area" />
+          <ScalarProperty Name="locality" ColumnName="locality" />
+          <ScalarProperty Name="sublocality" ColumnName="sublocality" />
+          <ScalarProperty Name="neighborhood" ColumnName="neighborhood" />
+          <ScalarProperty Name="postal_code" ColumnName="postal_code" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="shortName" ColumnName="shortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Project">
+        <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectForms">
+      <EntityTypeMapping TypeName="Creos_StagingModel.ProjectForm">
+        <MappingFragment StoreEntitySet="ProjectForms">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QueryTableResults">
+      <EntityTypeMapping TypeName="Creos_StagingModel.QueryTableResult">
+        <MappingFragment StoreEntitySet="QueryTableResult">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Appreciation" ColumnName="Appreciation" />
+          <ScalarProperty Name="Issue" ColumnName="Issue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StateProvinces">
+      <EntityTypeMapping TypeName="Creos_StagingModel.StateProvince">
+        <MappingFragment StoreEntitySet="StateProvinces">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Abbreviation" ColumnName="Abbreviation" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubmissionEmployeeMaps">
+      <EntityTypeMapping TypeName="Creos_StagingModel.SubmissionEmployeeMap">
+        <MappingFragment StoreEntitySet="SubmissionEmployeeMap">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubmissionId" ColumnName="SubmissionId" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="Assigned" ColumnName="Assigned" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriberLanguages">
+      <EntityTypeMapping TypeName="Creos_StagingModel.SubscriberLanguage">
+        <MappingFragment StoreEntitySet="SubscriberLanguages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SubcriberId" ColumnName="SubcriberId" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscribers">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Subscriber">
+        <MappingFragment StoreEntitySet="Subscribers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="SubDomain" ColumnName="SubDomain" />
+          <ScalarProperty Name="PreferredDomain" ColumnName="PreferredDomain" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+          <ScalarProperty Name="EmailVerificationCode" ColumnName="EmailVerificationCode" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+          <ScalarProperty Name="SubscriptionPlanId" ColumnName="SubscriptionPlanId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubscriptionPlans">
+      <EntityTypeMapping TypeName="Creos_StagingModel.SubscriptionPlan">
+        <MappingFragment StoreEntitySet="SubscriptionPlans">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NumberOfUsers" ColumnName="NumberOfUsers" />
+          <ScalarProperty Name="NumberOfForms" ColumnName="NumberOfForms" />
+          <ScalarProperty Name="NumberOfEntries" ColumnName="NumberOfEntries" />
+          <ScalarProperty Name="NumberOfReports" ColumnName="NumberOfReports" />
+          <ScalarProperty Name="StorageLimit" ColumnName="StorageLimit" />
+          <ScalarProperty Name="SubscriptionFee" ColumnName="SubscriptionFee" />
+          <ScalarProperty Name="DurationInMonths" ColumnName="DurationInMonths" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionName="Creos_StagingModel.Store.parseJSON" FunctionImportName="parseJSON">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Creos_StagingModel.parseJSON_Result">
+          <ScalarProperty Name="element_id" ColumnName="element_id" />
+          <ScalarProperty Name="sequenceNo" ColumnName="sequenceNo" />
+          <ScalarProperty Name="parent_ID" ColumnName="parent_ID" />
+          <ScalarProperty Name="Object_ID" ColumnName="Object_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="StringValue" ColumnName="StringValue" />
+          <ScalarProperty Name="ValueType" ColumnName="ValueType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionName="Creos_StagingModel.Store.udf_GetEmployeeDetailby_Appinfo_Employee_Id" FunctionImportName="udf_GetEmployeeDetailby_Appinfo_Employee_Id">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Creos_StagingModel.udf_GetEmployeeDetailby_Appinfo_Employee_Id_Result">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GenerateFormTable" FunctionName="Creos_StagingModel.Store.GenerateFormTable">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Creos_StagingModel.GenerateFormTable_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GenerateFormTableforChart" FunctionName="Creos_StagingModel.Store.GenerateFormTableforChart">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Creos_StagingModel.GenerateFormTableforChart_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Appreciation" ColumnName="Appreciation" />
+          <ScalarProperty Name="Issue" ColumnName="Issue" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetChartDataByFormID" FunctionName="Creos_StagingModel.Store.GetChartDataByFormID" />
+    <FunctionImportMapping FunctionImportName="GetFormSubmissionByMe" FunctionName="Creos_StagingModel.Store.GetFormSubmissionByMe">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Creos_StagingModel.GetFormSubmissionByMe_Result">
+          <ScalarProperty Name="FormSubmissionId" ColumnName="FormSubmissionId" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="LatLong" ColumnName="LatLong" />
+          <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+          <ScalarProperty Name="FormAnswerId" ColumnName="FormAnswerId" />
+          <ScalarProperty Name="FormAnswerValue" ColumnName="FormAnswerValue" />
+          <ScalarProperty Name="FormAnswerElementType" ColumnName="FormAnswerElementType" />
+          <ScalarProperty Name="FormQuestionId" ColumnName="FormQuestionId" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="FormImage" ColumnName="FormImage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetSubmissionByLatLngDis" FunctionName="Creos_StagingModel.Store.GetSubmissionByLatLngDis">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Creos_StagingModel.GetSubmissionByLatLngDis_Result">
+          <ScalarProperty Name="FormSubmissionId" ColumnName="FormSubmissionId" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FolderName" ColumnName="FolderName" />
+          <ScalarProperty Name="LatLong" ColumnName="LatLong" />
+          <ScalarProperty Name="SubmittedOn" ColumnName="SubmittedOn" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+          <ScalarProperty Name="FormAnswerId" ColumnName="FormAnswerId" />
+          <ScalarProperty Name="FormAnswerValue" ColumnName="FormAnswerValue" />
+          <ScalarProperty Name="FormAnswerElementType" ColumnName="FormAnswerElementType" />
+          <ScalarProperty Name="FormQuestionId" ColumnName="FormQuestionId" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="FormImage" ColumnName="FormImage" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetFormSubmissionDetailByFormID" FunctionName="Creos_StagingModel.Store.usp_GetFormSubmissionDetailByFormID" />
+    <EntitySetMapping Name="RoleReportsToes">
+      <EntityTypeMapping TypeName="Creos_StagingModel.RoleReportsTo">
+        <MappingFragment StoreEntitySet="RoleReportsTo">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ReportToId" ColumnName="ReportToId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserReportToes">
+      <EntityTypeMapping TypeName="Creos_StagingModel.UserReportTo">
+        <MappingFragment StoreEntitySet="UserReportTo">
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ReportToEmpRoleId" ColumnName="ReportToEmpRoleId" />
+          <ScalarProperty Name="ReportToEmpId" ColumnName="ReportToEmpId" />
+          <ScalarProperty Name="EmpRoleId" ColumnName="EmpRoleId" />
+          <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubmissionLogs">
+      <EntityTypeMapping TypeName="Creos_StagingModel.SubmissionLog">
+        <MappingFragment StoreEntitySet="SubmissionLogs">
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+          <ScalarProperty Name="SubmissionId" ColumnName="SubmissionId" />
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_GetFormSubmissionDetailByFormID_Demo" FunctionName="Creos_StagingModel.Store.usp_GetFormSubmissionDetailByFormID_Demo" />
+    <EntitySetMapping Name="Forms">
+      <EntityTypeMapping TypeName="Creos_StagingModel.Form">
+        <MappingFragment StoreEntitySet="Forms">
+          <ScalarProperty Name="IsVisibleSection" ColumnName="IsVisibleSection" />
+          <ScalarProperty Name="IsPrivateForm" ColumnName="IsPrivateForm" />
+          <ScalarProperty Name="WorkFlowEnabled" ColumnName="WorkFlowEnabled" />
+          <ScalarProperty Name="WebFormUID" ColumnName="WebFormUID" />
+          <ScalarProperty Name="OrderBy" ColumnName="OrderBy" />
+          <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+          <ScalarProperty Name="SubscriberId" ColumnName="SubscriberId" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
